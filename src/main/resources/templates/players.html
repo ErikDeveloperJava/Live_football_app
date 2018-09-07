@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<head>
+    <link rel="stylesheet" type="text/css" href="/resources/wp-content/cache/minify/e69e3.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/file-input.css" media="all"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="text/javascript" src="/resources/js/jquery.js"></script>
+    <link rel="pingback" href="http://templateindustry.com/themeforest/wp/goalpost/xmlrpc.php"/>
+    <title>Player Grid &#8211; Goal Post</title>
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/'/>
+    <link rel='dns-prefetch' href='http://s.w.org/'/>
+    <link rel="alternate" type="application/rss+xml" title="Goal Post &raquo; Feed" href="/resources/feed/index.html"/>
+    <link rel="alternate" type="application/rss+xml" title="Goal Post &raquo; Comments Feed"
+          href="/resources/comments/feed/index.html"/>
+    <script type="text/javascript">window._wpemojiSettings = {
+        "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+        "ext": ".png",
+        "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+        "svgExt": ".svg",
+        "source": {"concatemoji": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.5"}
+    };
+    !function (a, b, c) {
+        function d(a) {
+            var b, c, d, e, f = String.fromCharCode;
+            if (!k || !k.fillText) return !1;
+            switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                case"flag":
+                    return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                case"emoji4":
+                    return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+            }
+            return !1
+        }
+
+        function e(a) {
+            var c = b.createElement("script");
+            c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+        }
+
+        var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+        for (i = Array("flag", "emoji4"), c.supports = {
+            everything: !0,
+            everythingExceptFlag: !0
+        }, h = 0; h < i.length; h++) c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+        c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+            c.DOMReady = !0
+        }, c.supports.everything || (g = function () {
+            c.readyCallback()
+        }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+            "complete" === b.readyState && c.readyCallback()
+        })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+    }(window, document, window._wpemojiSettings);</script>
+    <link rel='stylesheet' id='goal-post-navi-default-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h1-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h2-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h3-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h4-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h5-Montserrat-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h6-Montserrat-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-body-Open-Sans-css'
+          href='http://fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&#038;subset=greek%2Ccyrillic-ext%2Ccyrillic%2Clatin%2Clatin-ext%2Cvietnamese%2Cgreek-ext&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <script type="text/javascript" src="/resources/wp-content/cache/minify/c2122.js"></script>
+    <script type='text/javascript'>/*  */
+    var ajax_login_object = {
+        "ajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+        "redirecturl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost",
+        "loadingmessage": "Sending user info, please wait..."
+    };
+    /*  */</script>
+    <script type='text/javascript'>/*  */
+    var ajax_signup_object = {
+        "ajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+        "redirecturl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost",
+        "loadingmessage": "Sending user info, please wait..."
+    };
+    /*  */</script>
+    <script type='text/javascript'>/*  */
+    var ajax_login_object = {"loadingmessage": "Sending user info, please wait..."};
+    /*  */</script>
+    <script type='text/javascript'>jQuery(document).ready(function (jQuery) {
+        jQuery.datepicker.setDefaults({
+            "closeText": "Close",
+            "currentText": "Today",
+            "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            "nextText": "Next",
+            "prevText": "Previous",
+            "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"],
+            "dateFormat": "MM d, yy",
+            "firstDay": 1,
+            "isRTL": false
+        });
+    });</script>
+    <script type='text/javascript'>/*  */
+    var uiAutocompleteL10n = {
+        "noResults": "No results found.",
+        "oneResult": "1 result found. Use up and down arrow keys to navigate.",
+        "manyResults": "%d results found. Use up and down arrow keys to navigate.",
+        "itemSelected": "Item selected."
+    };
+    /*  */</script>
+    <script type='text/javascript'>/*  */
+    var EM = {
+        "ajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+        "locationajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php?action=locations_search",
+        "firstDay": "1",
+        "locale": "en",
+        "dateFormat": "dd\/mm\/yy",
+        "ui_css": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-content\/plugins\/events-manager\/includes\/css\/jquery-ui.css",
+        "show24hours": "0",
+        "is_ssl": "",
+        "google_maps_api": "AIzaSyA1HYukIMS3GG1mk3cauYwn1bff1ozYym4",
+        "bookingInProgress": "Please wait while the booking is being submitted.",
+        "tickets_save": "Save Ticket",
+        "bookingajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+        "bookings_export_save": "Export Bookings",
+        "bookings_settings_save": "Save Settings",
+        "booking_delete": "Are you sure you want to delete?",
+        "bb_full": "Sold Out",
+        "bb_book": "Book Now",
+        "bb_booking": "Booking...",
+        "bb_booked": "Booking Submitted",
+        "bb_error": "Booking Error. Try again?",
+        "bb_cancel": "Cancel",
+        "bb_canceling": "Canceling...",
+        "bb_cancelled": "Cancelled",
+        "bb_cancel_error": "Cancellation Error. Try again?",
+        "txt_search": "Search",
+        "txt_searching": "Searching...",
+        "txt_loading": "Loading...",
+        "event_reschedule_warning": "Are you sure you want to reschedule this recurring event? If you do this, you will lose all booking information and the old recurring events will be deleted.",
+        "event_detach_warning": "Are you sure you want to detach this event? By doing so, this event will be independent of the recurring set of events.",
+        "delete_recurrence_warning": "Are you sure you want to delete all recurrences of this event? All events will be moved to trash.",
+        "disable_bookings_warning": "Are you sure you want to disable bookings? If you do this and save, you will lose all previous bookings. If you wish to prevent further bookings, reduce the number of spaces available to the amount of bookings you currently have",
+        "booking_warning_cancel": "Are you sure you want to cancel your booking?"
+    };
+    /*  */</script>
+    <link rel='https://api.w.org/' href='/resources/wp-json/index.html'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/resources//xmlrpc.php@rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/resources//wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.5"/>
+    <meta name="generator" content="WooCommerce 3.0.3"/>
+    <link rel="canonical" href="/resources/page/1/index.html"/>
+    <link rel='shortlink' href='/resources/index.html@p=318.html'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="/resources/wp-json/oembed/1.0/embed@url=http%253A%252F%252Ftemplateindustry.com%252Fthemeforest%252Fwp%252Fgoalpost%252Fplayer-grid%252F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="/resources/wp-json/oembed/1.0/embed@url=http%253A%252F%252Ftemplateindustry.com%252Fthemeforest%252Fwp%252Fgoalpost%252Fplayer-grid%252F&amp;format=xml"/>
+</head>
+<body class="page-template-default page page-id-318 kode-loader kode-pure-white kode-header-icons-simple">
+<div class="body-wrapper" data-home="http://templateindustry.com/themeforest/wp/goalpost/">
+    <header class="football">
+        <div class="topbar4">
+            <div class="container">
+                <div class="pull-right">
+                    <div class="login-wraper3">
+                        <ul class="login-meta">
+                            <li th:unless="${#strings.equals(user.role,'USER')}">
+                                <a class="btn btn-primary" data-toggle="modal" data-target=".media01">Login</a>
+                                <div class="modal fade bs-example-modal-lg media01" tabindex="-1">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="kode_modal_body">
+                                                <a style="cursor: pointer"><i
+                                                        class="fa fa-user"></i></a>
+                                                <h2>Login</h2>
+                                                <form class="login" id="login-form"
+                                                      action="/login"
+                                                      method="post">
+                                                    <span id="loginError" style="color: red"></span>
+                                                    <div class="kode_modal_field">
+                                                        <input type="text" id="username-login"
+                                                               class="username login-input"
+                                                               name="username"
+                                                               placeholder="Username"></div>
+                                                    <div class="kode_modal_field">
+                                                        <input type="password" id="password-login"
+                                                               class="password login-input"
+                                                               name="password"
+                                                               placeholder="Password">
+                                                    </div>
+
+                                                    <div class="kode_modal_field">
+                                                        <input style="width: 20px" type="checkbox" id="remember-me"
+                                                               name="remember-me">
+                                                        <span style="position:relative;top:-15px">Remember me</span>
+                                                    </div>
+                                                    <div class="kode_model_btn">
+                                                        <button type="submit">Login</button>
+                                                    </div>
+                                                    <p class="status"></p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li th:if="${#strings.equals(user.role,'USER')}">
+                                <img style="border-radius: 10px;width: 50px"
+                                     th:src="@{/resources/users/{img}(img = ${user.imgUrl})}">
+                                <span style="color:white" th:text="${user.name}"></span>
+                            </li>
+                            <li th:unless="${#strings.equals(user.role,'USER')}">
+                                <a class="btn btn-primary" data-toggle="modal" data-target=".media02">Register</a>
+                                <div class="modal fade bs-example-modal-lg media02" tabindex="-1">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="kode_modal_body"><a style="cursor:pointer;"><i
+                                                    class="fa fa-user"></i></a>
+                                                <h2>Register</h2>
+                                                <form id="register-form" class="sign-up"
+                                                      action="/register"
+                                                      method="post">
+                                                    <span id="register-success" style="color: green"></span>
+                                                    <div class="kode_modal_field">
+                                                        <span style="color: red" class="register-error"
+                                                              id="nameError"></span><br/>
+                                                        <input type="text" id="name"
+                                                               name="name"
+                                                               placeholder="Name"
+                                                               class="form_holder register-input"/></div>
+                                                    <div class="kode_modal_field">
+                                                        <span style="color: red" class="register-error"
+                                                              id="usernameError"></span><br/>
+                                                        <input type="text" id="username"
+                                                               name="username"
+                                                               placeholder="Username"
+                                                               class="form_holder register-input"/></div>
+                                                    <div class="kode_modal_field">
+                                                        <span style="color: red" class="register-error"
+                                                              id="passwordError"></span><br/>
+                                                        <input type="password" id="password"
+                                                               placeholder="Password"
+                                                               name="password"
+                                                               class="form_holder register-input"/>
+                                                    </div>
+                                                    <div class="kode_modal_field">
+                                                        <span style="color: red" class="register-error"
+                                                              id="imageError"></span><br/>
+                                                        <input type="file" name="image" id="file"
+                                                               class="inputfile register-input"/>
+                                                        <label style="cursor: pointer" for="file">Choose a photo</label><br/>
+                                                    </div>
+                                                    <div class="kode_model_btn">
+                                                        <button type="submit">Register</button>
+                                                    </div>
+                                                    <p class="status"></p></form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li th:if="${#strings.equals(user.role,'USER')}">
+                                <br/>
+                                <a style="position: relative;top:-6px" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                        <ul class=" social-style3">
+                            <li class="kode-header-fb"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li class="kode-header-flickr"><a href="https://www.vk.com"><i class="fa fa-vk"></i></a>
+                            </li>
+                            <li class="kode-header-plus"><a href="https://www.google.ru"><i
+                                    class="fa fa-google"></i></a></li>
+                            <li class="kode-header-linked"><a href="https://www.ok.ru"><i
+                                    class="fa fa-odnoklassniki"></i></a>
+                            </li>
+                            <li class="kode-header-twitter"><a href="https://www.twitter.ru"><i
+                                    class="fa fa-twitter"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logo-wrap2">
+            <div class="container">
+                <div class="logo logo-3"><a href="/">
+                    <img src="/resources/icons/logo.png" alt="" width="100" height="40"/>
+                    <span style="font-family: 'Source Sans Pro', sans-serif">
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">L</span>
+                        i
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">v</span>
+                        e__
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">
+                             F</span>
+                        o
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">o</span>
+                        t
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">b</span>
+                        a
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">l</span>
+                        l
+                    </span>
+                </a></div>
+            </div>
+        </div>
+        <div class="nav4">
+            <div class="container">
+                <div class="kode-navigation-wrapper">
+                    <div class="navigation">
+                        <div class="menu-main-menu-container">
+                            <ul id="menu-main-menu" class="menu">
+                                <li id="menu-item-225"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-10 current_page_item menu-item-225">
+                                    <a href="/">Home</a></li>
+                                <li id="menu-item-270"
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-270">
+                                    <a style="cursor:pointer">League</a>
+                                    <ul class="sub-menu" id="leagues-ul">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-223"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a
+                                        href="/clubs">Clubs</a></li>
+                                <li id="menu-item-270"
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-270">
+                                    <a style="cursor:pointer">Matches</a>
+                                    <ul class="sub-menu" id="leagues-ul">
+                                        <li id="menu-item-1211"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
+                                            <a href="/matches/soon">Soon</a>
+                                        </li>
+                                        <li id="menu-item-1222"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
+                                            <a href="/matches/completed">Completed</a>
+                                        </li>
+                                        <li id="menu-item-1213"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
+                                            <a href="/matches/todays">Today's</a>
+                                        </li>
+                                        <li id="menu-item-1213"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
+                                            <a href="/matches">All</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-223"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a
+                                        href="/news">News</a></li>
+
+                                <li id="menu-item-223"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a
+                                        href="/gallery">Gallery</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="sub_header_style">
+        <div class="kode_benner1_text">
+            <h2>Clubs</h2></div>
+        <div class="kode_benner1_cols">
+            <div class="container kf_container">
+                <ul id="breadcrumbs" class="breadcrumb">
+                    <li class="item-home"><a class="bread-link bread-home" href="/" title="Homepage">Homepage</a>
+                    </li>
+                    <li><a style="cursor: pointer" >Clubs</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="vc-wrapper container"></div>
+            <div class="pagebuilder-wrapper">
+                <div id="content-section-1">
+                    <div class="section-container container">
+                        <div class="row">
+                            <div class="aladin-player-wrapper">
+                                <div class="kode-team kode-team-list col-md-12">
+                                    <ul class="row">
+                                        <li class="clear"></li>
+                                        <th:block th:each="club : ${clubs}">
+                                            <li class="col-sm-6 col-md-4 columns">
+                                                <div class="ftb-team-thumb">
+                                                    <figure>
+                                                        <img style="height: 200px"
+                                                             th:src="@{/resources/clubs/{img}(img = ${club.imgUrl})}"
+                                                             class="attachment-goalpost-small-grid-size size-goalpost-small-grid-size wp-post-image"
+                                                             alt=""/>
+                                                    </figure>
+                                                    <div class="ftb-team-dec">
+                                                        <div class="text">
+                                                            <a th:href="@{/club/{id}(id = ${club.id})}"
+                                                               th:text="${club.name}">Cenk Tosun</a>
+                                                            <p th:text="'League: ' + ${club.league.name}">League</p>
+                                                        </div>
+                                                        <a class="arrow-iconbtn" th:href="@{/club/{id}(id = ${club.id})}">
+                                                            <i class="fa fa-arrow-right "></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </th:block>
+                                    </ul>
+                                </div>
+                                <div th:if="${#lists.size(clubs) > 0}" class="col-md-12">
+                                    <div class="kode-pagination">
+                                        <a th:if="${pageNumber eq 0}" class="next page-numbers">Prev</a>
+                                        <a th:if="${pageNumber > 0}" class="next page-numbers"
+                                           th:href="@{${#request.getRequestURI()}(page=${pageNumber})}">Prev</a>
+                                        <a class='page-numbers' th:if="${pageNumber-2 > 0}"
+                                           th:href='@{${#request.getRequestURI()}(page=1)}'>1</a>
+                                        <span th:if="${pageNumber -1 >=0}" class="page-numbers dots">&hellip;</span>
+                                        <a class='page-numbers' th:if="${pageNumber-2 >= 0}"
+                                           th:href='@{${#request.getRequestURI()}(page=${pageNumber-1})}'
+                                           th:text="${pageNumber-1}">2</a>
+                                        <a class='page-numbers' th:if="${pageNumber-1 >= 0}"
+                                           th:href='@{${#request.getRequestURI()}(page=${pageNumber})}'
+                                           th:text="${pageNumber}">3</a>
+                                        <span class='page-numbers current' th:text="${pageNumber + 1}">1</span>
+                                        <a class='page-numbers' th:if="${pageNumber+1} < ${length}"
+                                           th:href='@{${#request.getRequestURI()}(page=${pageNumber+2})}'
+                                           th:text="${pageNumber+2}">2</a>
+                                        <a class='page-numbers' th:if="${pageNumber+2} < ${length}"
+                                           th:href='@{${#request.getRequestURI()}(page=${pageNumber + 3})}'
+                                           th:text="${pageNumber + 3}">3</a>
+                                        <span th:if="${pageNumber +1} < ${length}"
+                                              class="page-numbers dots">&hellip;</span>
+                                        <a class='page-numbers' th:if="${pageNumber+2} < ${length-1}"
+                                           th:href='@{${#request.getRequestURI()}(page=${length})}'
+                                           th:text="${length}">3</a>
+                                        <a class="next page-numbers" th:if="${pageNumber + 1} < ${length}"
+                                            th:href="@{${#request.getRequestURI()}(page=${pageNumber + 2})}">Next</a>
+                                        <a class="next page-numbers" th:if="${pageNumber + 1} >= ${length}">Next</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <footer class="football-footer footer-bottom-6">
+        <div class="container">
+            <div class="row">
+                <div id="goal_post_contact_widget-2"
+                     class="col-sm-6 col-md-4 widget widget_goal_post_contact_widget kode-widget">
+                    <div class="widget spb-widget spb-text-widget">
+                        <div style="width: 100px" class="ft-logo"><a href="goalpost.1.html"><img
+                                src="/resources/icons/logo.png" alt=""><span style="color: green">Live Football</span></a></div>
+                        <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante at nunc pretium
+                            mattis. Nunc ac semp a libero et, iaculis gravida orci. Suspendisse imperdiet dolor in
+                            tristique dignissim. Fusce lacus dolor, accumsan . ..</p>
+                        <ul class="spb-social2"></ul>
+                    </div>
+                </div>
+                <div id="goal_post_popular_post_widget-2"
+                     class="col-sm-6 col-md-4 widget widget_goal_post_popular_post_widget kode-widget">
+
+                </div>
+                <div id="goal_post_flickr_widget-2"
+                     class="col-sm-6 col-md-4 widget widget_goal_post_flickr_widget kode-widget">
+                </div>
+            </div>
+            <div class="spb-copyright">
+                <span>Copyright ©  2018 Live football</span>
+            </div>
+        </div>
+    </footer>
+
+</div><!--
+<script type='text/javascript'>/*  */
+var _wpcf7 = {"recaptcha": {"messages": {"empty": "Please verify that you are not a robot."}}, "cached": "1"};
+/*  */</script>
+<script type='text/javascript'>/*  */
+var wc_add_to_cart_params = {
+    "ajax_url": "\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+    "wc_ajax_url": "\/themeforest\/wp\/goalpost\/player-grid\/?wc-ajax=%%endpoint%%",
+    "i18n_view_cart": "View cart",
+    "cart_url": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/cart\/",
+    "is_cart": "",
+    "cart_redirect_after_add": "no"
+};
+/*  */</script>
+<script type='text/javascript'>/*  */
+var woocommerce_params = {
+    "ajax_url": "\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+    "wc_ajax_url": "\/themeforest\/wp\/goalpost\/player-grid\/?wc-ajax=%%endpoint%%"
+};
+/*  */</script>
+<script type='text/javascript'>/*  */
+var wc_cart_fragments_params = {
+    "ajax_url": "\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+    "wc_ajax_url": "\/themeforest\/wp\/goalpost\/player-grid\/?wc-ajax=%%endpoint%%",
+    "fragment_name": "wc_fragments"
+};
+/*  */</script>
+<script type='text/javascript'>/*  */
+var ajax_var = {
+    "url": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+    "nonce": "1b826fd87d"
+};
+/*  */</script>-->
+<script type="text/javascript" src="/resources/wp-content/cache/minify/16559.js"></script>
+<script type="text/javascript" src="/resources/js/generic.js"></script>
+<script type="text/javascript" src="/resources/js/register.js"></script>
+<script type="text/javascript" src="/resources/js/login.js"></script>
+
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 3186/3277 objects using disk
+Page Caching using disk: enhanced
+Minified using disk
+Database Caching 22/47 queries in 0.008 seconds using disk
+
+ Served from: templateindustry.com @ 2017-07-13 20:07:26 by W3 Total Cache -->

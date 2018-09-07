@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>error 500</title>
+    <link rel="stylesheet" th:href="@{/resources/error_page/css/main.css}" />
+</head>
+<body>
+<div class="overlay"></div>
+<div class="terminal">
+    <h1>Error <span class="errorcode">500</span></h1>
+    <p class="output">Please try <a th:href="@{/}">this link</a> </p>
+</div>
+</body>
+</html>
