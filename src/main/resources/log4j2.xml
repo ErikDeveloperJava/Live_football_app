@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" strict="true">
+    <properties>
+        <property name="path" value="D:/web/live-football/logging"/>
+    </properties>
+    <Appenders>
+        <!--Console appender-->
+        <Appender  type="Console" name="logToConsole">
+            <Layout type="PatternLayout" pattern="%clr{%d{yyyy-MM-dd HH:mm:ss}}{faint} %clr{%level} %clr{}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%c{1}.%M}{cyan} %clr{:}{faint} %m%n%xwEx"/>
+        </Appender>
+        <!--Framework file appender-->
+        <Appender type="RollingFile" name="logToFrameworkFile" fileName="${path}/framework.log" filePattern="${path}/framework_%i.log">
+            <Layout type="PatternLayout" pattern="%d{yyyy-MM-dd HH:mm:ss} %level --- [%t] %c{1}.%M : %m%n%xwEx"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20Mb" />
+            </Policies>
+        </Appender>
+        <!--App file appender-->
+        <Appender type="RollingFile" name="logToAppFile" fileName="${path}/app.log" filePattern="${path}/app_%i.log">
+            <Layout type="PatternLayout" pattern="%d{yyyy-MM-dd HH:mm:ss} %level --- [%t] %c{1}.%M : %m%n%xwEx"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20Mb" />
+            </Policies>
+        </Appender>
+    </Appenders>
+
+    <Loggers>
+        <!--App Logger-->
+        <Logger name="net.livefootball" additivity="false" level="all">
+            <AppenderRef ref="logToConsole"/>
+            <!--<AppenderRef ref="logToAppFile"/>-->
+        </Logger>
+        <!--Root Logger-->
+        <Root level="info">
+            <AppenderRef ref="logToConsole"/>
+            <!--<AppenderRef ref="logToFrameworkFile"/>-->
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,10 +1,857 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <link rel="stylesheet" type="text/css" href="/resources/wp-content/cache/minify/4bf53.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/file-input.css" media="all"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="text/javascript" src="/resources/js/jquery.js"></script>
+    <link rel="pingback" href="http://templateindustry.com/themeforest/wp/goalpost/xmlrpc.php"/>
+    <title>Live football</title>
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/'/>
+    <link rel='dns-prefetch' href='http://s.w.org/'/>
+    <link rel="alternate" type="application/rss+xml" title="Goal Post &raquo; Feed" href="/resources/feed/index.html"/>
+    <link rel="alternate" type="application/rss+xml" title="Goal Post &raquo; Comments Feed"
+          href="/resources/comments/feed/index.html"/>
+    <script type="text/javascript">window._wpemojiSettings = {
+        "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/",
+        "ext": ".png",
+        "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/",
+        "svgExt": ".svg",
+        "source": {"concatemoji": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.5"}
+    };
+    !function (a, b, c) {
+        function d(a) {
+            var b, c, d, e, f = String.fromCharCode;
+            if (!k || !k.fillText) return !1;
+            switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) {
+                case"flag":
+                    return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c);
+                case"emoji4":
+                    return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e
+            }
+            return !1
+        }
+
+        function e(a) {
+            var c = b.createElement("script");
+            c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c)
+        }
+
+        var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d");
+        for (i = Array("flag", "emoji4"), c.supports = {
+            everything: !0,
+            everythingExceptFlag: !0
+        }, h = 0; h < i.length; h++) c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]);
+        c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () {
+            c.DOMReady = !0
+        }, c.supports.everything || (g = function () {
+            c.readyCallback()
+        }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () {
+            "complete" === b.readyState && c.readyCallback()
+        })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji)))
+    }(window, document, window._wpemojiSettings);</script>
+    <link rel='stylesheet' id='goal-post-navi-default-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h1-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h2-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h3-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h4-Raleway-css'
+          href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h5-Montserrat-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-h6-Montserrat-css'
+          href='http://fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='goal-post-body-Open-Sans-css'
+          href='http://fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&#038;subset=greek%2Ccyrillic-ext%2Ccyrillic%2Clatin%2Clatin-ext%2Cvietnamese%2Cgreek-ext&#038;ver=4.7.5'
+          type='text/css' media='all'/>
+    <script type="text/javascript" src="/resources/wp-content/cache/minify/c2122.js"></script>
+    <script type='text/javascript'>/*  */
+    var ajax_login_object = {
+        "ajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+        "redirecturl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost",
+        "loadingmessage": "Sending user info, please wait..."
+    };
+    /*  */</script>
+    <script type='text/javascript'>/*  */
+    var ajax_signup_object = {
+        "ajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+        "redirecturl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost",
+        "loadingmessage": "Sending user info, please wait..."
+    };
+    /*  */</script>
+    <script type='text/javascript'>/*  */
+    var ajax_login_object = {"loadingmessage": "Sending user info, please wait..."};
+    /*  */</script>
+    <script type='text/javascript'>jQuery(document).ready(function (jQuery) {
+        jQuery.datepicker.setDefaults({
+            "closeText": "Close",
+            "currentText": "Today",
+            "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            "nextText": "Next",
+            "prevText": "Previous",
+            "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"],
+            "dateFormat": "MM d, yy",
+            "firstDay": 1,
+            "isRTL": false
+        });
+    });</script>
+    <script type='text/javascript'>/*  */
+    var uiAutocompleteL10n = {
+        "noResults": "No results found.",
+        "oneResult": "1 result found. Use up and down arrow keys to navigate.",
+        "manyResults": "%d results found. Use up and down arrow keys to navigate.",
+        "itemSelected": "Item selected."
+    };
+    /*  */</script>
+    <script type='text/javascript'>/*  */
+    var EM = {
+        "ajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+        "locationajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php?action=locations_search",
+        "firstDay": "1",
+        "locale": "en",
+        "dateFormat": "dd\/mm\/yy",
+        "ui_css": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-content\/plugins\/events-manager\/includes\/css\/jquery-ui.css",
+        "show24hours": "0",
+        "is_ssl": "",
+        "google_maps_api": "AIzaSyA1HYukIMS3GG1mk3cauYwn1bff1ozYym4",
+        "bookingInProgress": "Please wait while the booking is being submitted.",
+        "tickets_save": "Save Ticket",
+        "bookingajaxurl": "http:\/\/templateindustry.com\/themeforest\/wp\/goalpost\/wp-admin\/admin-ajax.php",
+        "bookings_export_save": "Export Bookings",
+        "bookings_settings_save": "Save Settings",
+        "booking_delete": "Are you sure you want to delete?",
+        "bb_full": "Sold Out",
+        "bb_book": "Book Now",
+        "bb_booking": "Booking...",
+        "bb_booked": "Booking Submitted",
+        "bb_error": "Booking Error. Try again?",
+        "bb_cancel": "Cancel",
+        "bb_canceling": "Canceling...",
+        "bb_cancelled": "Cancelled",
+        "bb_cancel_error": "Cancellation Error. Try again?",
+        "txt_search": "Search",
+        "txt_searching": "Searching...",
+        "txt_loading": "Loading...",
+        "event_reschedule_warning": "Are you sure you want to reschedule this recurring event? If you do this, you will lose all booking information and the old recurring events will be deleted.",
+        "event_detach_warning": "Are you sure you want to detach this event? By doing so, this event will be independent of the recurring set of events.",
+        "delete_recurrence_warning": "Are you sure you want to delete all recurrences of this event? All events will be moved to trash.",
+        "disable_bookings_warning": "Are you sure you want to disable bookings? If you do this and save, you will lose all previous bookings. If you wish to prevent further bookings, reduce the number of spaces available to the amount of bookings you currently have",
+        "booking_warning_cancel": "Are you sure you want to cancel your booking?"
+    };
+    /*  */</script>
+    <link rel='https://api.w.org/' href='/resources/wp-json/index.html'/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/resources/xmlrpc.php@rsd"/>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/resources/wp-includes/wlwmanifest.xml"/>
+    <meta name="generator" content="WordPress 4.7.5"/>
+    <meta name="generator" content="WooCommerce 3.0.3"/>
+    <link rel="canonical" href="/resources/goalpost.1.html"/>
+    <link rel='shortlink' href='/resources/goalpost.1.html'/>
+    <link rel="alternate" type="application/json+oembed"
+          href="/resources/wp-json/oembed/1.0/embed@url=http%253A%252F%252Ftemplateindustry.com%252Fthemeforest%252Fwp%252Fgoalpost%252F"/>
+    <link rel="alternate" type="text/xml+oembed"
+          href="/resources/wp-json/oembed/1.0/embed@url=http%253A%252F%252Ftemplateindustry.com%252Fthemeforest%252Fwp%252Fgoalpost%252F&amp;format=xml"/>
 </head>
-<body>
-$END$
+<body class="home page-template-default page page-id-10 kode-loader kode-pure-white kode-header-icons-simple">
+<div class="body-wrapper" data-home="http://templateindustry.com/themeforest/wp/goalpost/">
+    <header class="football">
+        <div class="topbar4">
+            <div class="container">
+                <div class="pull-right">
+                    <div class="login-wraper3">
+                        <ul class="login-meta">
+                            <li th:unless="${#strings.equals(user.role,'USER')}">
+                                <a class="btn btn-primary" data-toggle="modal" data-target=".media01">Login</a>
+                                <div class="modal fade bs-example-modal-lg media01" tabindex="-1">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="kode_modal_body">
+                                                <a style="cursor: pointer"><i
+                                                        class="fa fa-user"></i></a>
+                                                <h2>Login</h2>
+                                                <form class="login" id="login-form"
+                                                      action="/login"
+                                                      method="post">
+                                                    <span id="loginError" style="color: red"></span>
+                                                    <div class="kode_modal_field">
+                                                        <input type="text" id="username-login"
+                                                               class="username login-input"
+                                                               name="username"
+                                                               placeholder="Username"></div>
+                                                    <div class="kode_modal_field">
+                                                        <input type="password" id="password-login"
+                                                               class="password login-input"
+                                                               name="password"
+                                                               placeholder="Password">
+                                                    </div>
+
+                                                    <div class="kode_modal_field">
+                                                        <input style="width: 20px" type="checkbox" id="remember-me"
+                                                               name="remember-me">
+                                                        <span style="position:relative;top:-15px">Remember me</span>
+                                                    </div>
+                                                    <div class="kode_model_btn">
+                                                        <button type="submit">Login</button>
+                                                    </div>
+                                                    <p class="status"></p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li th:if="${#strings.equals(user.role,'USER')}">
+                                <img style="border-radius: 10px;width: 50px"
+                                     th:src="@{/resources/users/{img}(img = ${user.imgUrl})}">
+                                <span style="color:white" th:text="${user.name}"></span>
+                            </li>
+                            <li th:unless="${#strings.equals(user.role,'USER')}">
+                                <a class="btn btn-primary" data-toggle="modal" data-target=".media02">Register</a>
+                                <div class="modal fade bs-example-modal-lg media02" tabindex="-1">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="kode_modal_body"><a style="cursor:pointer;"><i
+                                                    class="fa fa-user"></i></a>
+                                                <h2>Register</h2>
+                                                <form id="register-form" class="sign-up"
+                                                      action="/register"
+                                                      method="post">
+                                                    <span id="register-success" style="color: green"></span>
+                                                    <div class="kode_modal_field">
+                                                        <span style="color: red" class="register-error"
+                                                              id="nameError"></span><br/>
+                                                        <input type="text" id="name"
+                                                               name="name"
+                                                               placeholder="Name"
+                                                               class="form_holder register-input"/></div>
+                                                    <div class="kode_modal_field">
+                                                        <span style="color: red" class="register-error"
+                                                              id="usernameError"></span><br/>
+                                                        <input type="text" id="username"
+                                                               name="username"
+                                                               placeholder="Username"
+                                                               class="form_holder register-input"/></div>
+                                                    <div class="kode_modal_field">
+                                                        <span style="color: red" class="register-error"
+                                                              id="passwordError"></span><br/>
+                                                        <input type="password" id="password"
+                                                               placeholder="Password"
+                                                               name="password"
+                                                               class="form_holder register-input"/>
+                                                    </div>
+                                                    <div class="kode_modal_field">
+                                                        <span style="color: red" class="register-error"
+                                                              id="imageError"></span><br/>
+                                                        <input type="file" name="image" id="file"
+                                                               class="inputfile register-input"/>
+                                                        <label style="cursor: pointer" for="file">Choose a photo</label><br/>
+                                                    </div>
+                                                    <div class="kode_model_btn">
+                                                        <button type="submit">Register</button>
+                                                    </div>
+                                                    <p class="status"></p></form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li th:if="${#strings.equals(user.role,'USER')}">
+                                <br/>
+                                <a style="position: relative;top:-6px" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                        <ul class=" social-style3">
+                            <li class="kode-header-fb"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li class="kode-header-flickr"><a href="https://www.vk.com"><i class="fa fa-vk"></i></a>
+                            </li>
+                            <li class="kode-header-plus"><a href="https://www.google.ru"><i
+                                    class="fa fa-google"></i></a></li>
+                            <li class="kode-header-linked"><a href="https://www.ok.ru"><i
+                                    class="fa fa-odnoklassniki"></i></a>
+                            </li>
+                            <li class="kode-header-twitter"><a href="https://www.twitter.ru"><i
+                                    class="fa fa-twitter"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logo-wrap2">
+            <div class="container">
+                <div class="logo logo-3"><a href="/">
+                    <img src="/resources/icons/logo.png" alt="" width="100" height="40"/>
+                    <span style="font-family: 'Source Sans Pro', sans-serif">
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">L</span>
+                        i
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">v</span>
+                        e__
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">
+                             F</span>
+                        o
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">o</span>
+                        t
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">b</span>
+                        a
+                        <span style="color: green;font-family: 'Source Sans Pro', sans-serif">l</span>
+                        l
+                    </span>
+                </a></div>
+            </div>
+        </div>
+        <div class="nav4">
+            <div class="container">
+                <div class="kode-navigation-wrapper">
+                    <div class="navigation">
+                        <div class="menu-main-menu-container">
+                            <ul id="menu-main-menu" class="menu">
+                                <li id="menu-item-225"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-10 current_page_item menu-item-225">
+                                    <a href="/">Home</a></li>
+                                <li id="menu-item-270"
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-270">
+                                    <a style="cursor:pointer">League</a>
+                                    <ul class="sub-menu" id="leagues-ul">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-223"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a
+                                        href="/clubs">Clubs</a></li>
+                                <li id="menu-item-270"
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-270">
+                                    <a style="cursor:pointer">Matches</a>
+                                    <ul class="sub-menu" id="leagues-ul">
+                                        <li id="menu-item-1211"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
+                                            <a href="/matches/soon">Soon</a>
+                                        </li>
+                                        <li id="menu-item-1222"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
+                                            <a href="/matches/completed">Completed</a>
+                                        </li>
+                                        <li id="menu-item-1213"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
+                                            <a href="/matches/todays">Today's</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-223"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a
+                                        href="/news">News</a></li>
+
+                                <li id="menu-item-223"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a
+                                        href="/gallery">Gallery</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="content-wrapper" th:object="${mainPage}">
+        <div class="content">
+            <div class="vc-wrapper container"></div>
+            <div class="pagebuilder-wrapper">
+                <div id="content-section-1">
+                    <div class=" kode-parallax-wrapper kode-background-color" id="kode-parallax-wrapper-1"
+                         style=";background:#ffffff">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="kode-item kode-slider-item ">
+                                    <div class="flexslider" data-pausetime="7000" data-slidespeed="600"
+                                         data-effect="fade">
+                                        <ul class="slides">
+                                            <li>
+                                                <div class="thumb-slider">
+                                                    <a style="cursor: pointer" target="_blank">
+                                                        <img src="/resources/wallpapers/wallpaper2.jpg" alt=""
+                                                             width="1920" height="935"/>
+                                                        <div class="container">
+                                                            <div class="kode-ft-caption text-left">
+                                                                <div class="football-caption"><h4
+                                                                        style="font-size:40px;color:#ffffff"
+                                                                        class="kode-caption-title">Welcome To</h4><h5
+                                                                        style="font-size:55px;color:#ffffff"
+                                                                        class="kode-caption-text">Live Football</h5>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                    </a></div>
+                                            </li>
+                                            <li>
+                                                <div class="thumb-slider"><a href="goalpost.1.html#"
+                                                                             target="_blank"><img
+                                                        src="/resources/wallpapers/wallpaper3.jpg" alt=""
+                                                        width="1920" height="935"/>
+                                                    <div class="container">
+                                                        <div class="kode-ft-caption text-center">
+                                                            <div class="football-caption"><h4
+                                                                    style="font-size:40px;color:#ffffff"
+                                                                    class="kode-caption-title">Football is Life,</h4><h5
+                                                                    style="font-size:55px;color:#ffffff"
+                                                                    class="kode-caption-text"> and fans are part of this
+                                                                life!</h5></div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </div>
+                                                </a></div>
+                                            </li>
+                                            <li>
+                                                <div class="thumb-slider"><a href="goalpost.1.html#"
+                                                                             target="_blank"><img
+                                                        src="/resources/wallpapers/wallpaper1.jpg" alt=""
+                                                        width="1920" height="935"/>
+                                                    <div class="container">
+                                                        <div class="kode-ft-caption text-right">
+                                                            <div class="football-caption"><h4
+                                                                    style="font-size:40px;color:#ffffff"
+                                                                    class="kode-caption-title">It's not so terrible to
+                                                                miss a blow,</h4><h5
+                                                                    style="font-size:55px;color:#ffffff"
+                                                                    class="kode-caption-text"> how to leave it without
+                                                                an answer.</h5>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </div>
+                                                </a></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <!--*******************************  Continue....  ************************************************************************************************-->
+
+
+                                <div class="ft-match-slider">
+                                    <div class="owl-carousel-3 owl-carousel owl-theme" id="matches-div" data-slide="3">
+                                        <th:block th:each="match : *{matches}">
+                                            <!--<div th:if="${matchStat.index < 3}" class="owl-item active" style="width: 449.667px; margin-right: 0px;">-->
+                                            <div class="ft-match-dec">
+                                                <span th:text="${#dates.format(match.date,'yyyy-MM-dd')}">2017-06-30</span>
+                                                <div class="ft-match-teams">
+                                                    <div class="ft-team-1">
+                                                        <h5>
+                                                            <a th:href="@{/club/{id}(id = ${match.master.id})}">Master</a>
+                                                        </h5>
+                                                        <a th:href="@{/club/{id}(id = ${match.master.id})}">
+                                                            <img height="20px" width="20px"
+                                                                 th:src="@{/resources/clubs/{img}(img = ${match.master.imgUrl})}"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                    <span th:text="${#dates.format(match.date,'HH:mm')}">04:45:00</span>
+                                                    <div class="ft-team-1 ft-team-2">
+                                                        <h5>
+                                                            <a th:href="@{/club/{id}(id = ${match.guest.id})}">Master</a>
+                                                        </h5>
+                                                        <a th:href="@{/club/{id}(id = ${match.guest.id})}">
+                                                            <img height="20px" width="20px"
+                                                                 th:src="@{/resources/clubs/{img}(img = ${match.guest.imgUrl})}"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--</div>    -->
+                                        </th:block>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="content-section-2">
+                <div class="clear"></div>
+            </div>
+            <div id="content-section-3">
+                <div class=" kode-parallax-wrapper kode-background-color" id="kode-parallax-wrapper-3"
+                     style=";background:#ffffff">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="">
+                                <div class="ftb-resultbg ftb-resultbg-1 latest-match-item">
+                                    <div class="container">
+                                        <div class="heading5"><h4>Latest<span> Match Result</span></h4></div>
+                                        <div th:if="*{match ne null}" class="ftb-result-wrap">
+                                            <div class="ftb-result1">
+                                                <div class="ftb-result-logo">
+                                                    <a th:href="@{/club/{id}(id = *{match.master.id})}">
+                                                        <img width="101"
+                                                             height="107"
+                                                             th:src="@{/resources/clubs/{img}(img=*{match.master.imgUrl})}"
+                                                             class="attachment-full size-full"
+                                                             alt=""/>
+                                                    </a>
+                                                    <span><b>Master</b></span></div>
+                                                <div class="text">
+                                                    <h6>
+                                                        <a th:href="@{/club/{id}(id = *{match.master.id})}"
+                                                           th:text="*{match.master.name}">Iceland</a>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <div class="ftb-final-result">
+                                                <em th:text="*{#dates.format(match.date,'dd.MM.yyyy HH:mm')}">date</em>
+                                                <p>
+                                                    <span class="grater" th:text="*{match.account}"></span>
+                                                </p>
+                                                <a class="btn-4" href="/matches/completed">SEE More</a>
+                                            </div>
+                                            <div class="ftb-result1 ftb-result2">
+                                                <div class="ftb-result-logo">
+                                                    <a th:ref="@{/club/{id}(id = *{match.guest.imgUrl})}">
+                                                        <img width="101"
+                                                             height="107"
+                                                             th:src="@{/resources/clubs/{img}(img=*{match.guest.imgUrl})}"
+                                                             class="attachment-full size-full"
+                                                             alt=""/>
+                                                    </a>
+                                                    <span><b>Guest</b></span></div>
+                                                <div class="text"><h6>
+                                                    <a th:href="@{/club/{id}(id = *{match.guest.id})}"
+                                                       th:text="*{match.guest.name}">Poland</a>
+                                                </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="content-section-4">
+                <div class="section-container container">
+                    <div class="row">
+                        <div class="clear"></div>
+                        <div class="kode-item kode-divider-item" style="margin-bottom: 70px;">
+                            <div class="kode-divider"></div>
+                        </div>
+                        <div class="clear"></div>
+
+                        <div class="clear"></div>
+                        <div class="clear"></div>
+                        <div class="clear"></div>
+                        <div class="kode-item kode-divider-item" style="margin-bottom: 70px;">
+                            <div class="kode-divider"></div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="clear"></div>
+                        <div class="ftb-tabs-wrap">
+                            <ul class="nav nav-tabs" role="tablist">
+
+                                <a href="/matches/todays">
+                                    <h2 style="position: relative;left: 430px;color: red">Today's matches
+                                    </h2>
+                                </a>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="home-latest-matches">
+                                    <ul class="ftb-main-table">
+                                        <th:block th:each="match : ${mainPage.todayMatches}">
+                                            <li>
+                                                <div class="ftb-date"
+                                                     th:text="${#dates.format(match.date,'dd.MM.yyyy HH:mm')}">date
+                                                </div>
+                                                <div class="ftb-compitatev">
+                                                    <div class="compitatev-team1">
+                                                        <img th:src="@{/resources/clubs/{img}(img = ${match.master.imgUrl})}"
+                                                             alt="">
+                                                        <a th:if="${#strings.length(match.master.name) <=7 }" style="font-size: 12px" th:href="@{/club/{id}(id = ${match.master.id})}"
+                                                           th:text="${match.master.name}">Master</a>
+                                                        <a th:if="${#strings.length(match.master.name) >7 }" style="font-size: 12px" th:href="@{/club/{id}(id = ${match.master.id})}"
+                                                           th:text="${#strings.substring(match.master.name,0,7)} + '...'">Master</a>
+                                                    </div>
+                                                    <span>VS</span>
+                                                    <div class="compitatev-team1 compitatev-team2">
+                                                        <img th:src="@{/resources/clubs/{img}(img = ${match.guest.imgUrl})}"
+                                                             alt="">
+                                                        <a th:if="${#strings.length(match.guest.name) <=7 }" style="font-size: 12px" th:href="@{/club/{id}(id = ${match.guest.id})}"
+                                                           th:text="${match.guest.name}">Guest</a>
+                                                        <a th:if="${#strings.length(match.guest.name) > 7 }" style="font-size: 12px" th:href="@{/club/{id}(id = ${match.guest.id})}"
+                                                           th:text="${#strings.substring(match.guest.name,0,7)} + '...'">Guest</a>
+                                                    </div>
+                                                </div>
+                                                <div class="ftb-venue" th:text="${match.master.stadium}">Orlando</div>
+                                            </li>
+                                        </th:block>
+                                    </ul>
+                                </div>
+                                <div role="tabpanel" class="tab-pane " id="home-training-schedule">
+                                    <script type="text/javascript">jQuery(document).ready(function ($) {
+                                        $("#calendar").fullCalendar({
+                                            defaultDate: "2017-02-12",
+                                            editable: false,
+                                            eventLimit: false, // allow "more" link when too many events
+                                            events: [
+                                                {
+                                                    id: 53,
+                                                    title: "Iceland VS Africa",
+                                                    start: "2017-06-30T04:45:00",
+                                                    end: "2017-06-30",
+                                                    url: "http://templateindustry.com/themeforest/wp/goalpost/?post_type=event&#038;p=53",
+                                                },
+                                                {
+                                                    id: 51,
+                                                    title: "Poland VS Germany",
+                                                    start: "2017-04-26T00:45:00",
+                                                    end: "2017-04-26",
+                                                    url: "http://templateindustry.com/themeforest/wp/goalpost/?post_type=event&#038;p=51",
+                                                },
+                                                {
+                                                    id: 39,
+                                                    title: "Africa VS England",
+                                                    start: "2017-04-21T01:30:00",
+                                                    end: "2017-04-21",
+                                                    url: "http://templateindustry.com/themeforest/wp/goalpost/?post_type=event&#038;p=39",
+                                                },
+                                                {
+                                                    id: 48,
+                                                    title: "Turkey VS Germany",
+                                                    start: "2017-04-03T00:15:00",
+                                                    end: "2017-04-03",
+                                                    url: "http://templateindustry.com/themeforest/wp/goalpost/?post_type=event&#038;p=48",
+                                                },
+                                                {
+                                                    id: 45,
+                                                    title: "Germany VS Iceland",
+                                                    start: "2017-04-02T03:30:00",
+                                                    end: "2017-04-02",
+                                                    url: "http://templateindustry.com/themeforest/wp/goalpost/?post_type=event&#038;p=45",
+                                                },
+                                            ]
+                                        });
+                                    })</script>
+                                    <div class="kode_calendar">
+                                        <div id="calendar" style="display:block !important;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="clear"></div>
+                        <div class="clear"></div>
+                        <div class="kode-item kode-divider-item" style="margin-bottom: 70px;">
+                            <div class="kode-divider"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-section-8" th:object="${mainPage}">
+                <div class=" kode-parallax-wrapper kode-background-image" id="kode-parallax-wrapper-6"
+                     data-bgspeed="0"
+                     style=";background-image: url('resources/wp-content/uploads/2017/03/ftb-latestnew.jpg'); padding-top: 70px; padding-bottom: 70px; ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="  col-md-7 columns">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 kode-simple-heading kode-align-left ">
+                                        <div class="heading5 black-9"><h4 style="color:#ffffff">Latest <span
+                                                style="color:#e01a22">News</span></h4></div>
+                                    </div>
+                                    <div th:if="*{#lists.size(newsList) > 0}" class="col-md-12">
+                                        <div class="blog-item-wrapper ">
+                                            <div class="blog-item-holder">
+                                                <div class="kode-blog-list kode-box-blog row">
+                                                    <div class="clear clearfix"></div>
+                                                    <div class="col-md-12">
+                                                        <div class="kode-item kode-blog-simple kode-odd">
+                                                            <div class="kode-ux kode-blog-simple-ux">
+                                                                <article id="news-168"
+                                                                         class="ftb-latestnew post-168 post type-post status-publish format-standard has-post-thumbnail hentry category-goal-blog category-champions category-soccer tag-goal tag-post tag-game tag-soccer tag-champions">
+                                                                    <div class="kode-blog-thumbnail">
+                                                                        <img style="height: 400px" th:src="@{/resources/news/{img}(img = *{newsList[0].imgUrl})}"
+                                                                             alt="" width="1600px" height="900px"/>
+                                                                    </div>
+                                                                    <div class="ftb-new-dec">
+                                                                        <span></span>
+                                                                        <div class="text">
+                                                                            <h4>
+                                                                                <a th:if="*{#strings.length(newsList[0].title) <= 30}"
+                                                                                   th:href="@{/news/{id}(id = *{newsList[0].id})}"
+                                                                                   th:text="*{newsList[0].title}">
+                                                                                </a>
+                                                                                <a th:if="*{#strings.length(newsList[0].title) > 30}"
+                                                                                   th:href="@{/news/{id}(id = *{newsList[0].id})}"
+                                                                                   th:text="*{#strings.substring(newsList[0].title,0,30)}">
+                                                                                </a>
+                                                                            </h4>
+                                                                            <div class="kode-blog-content">
+                                                                                <p th:if="*{#strings.length(newsList[0].description) <= 100}"
+                                                                                   th:text="*{newsList[0].description}"></p>
+                                                                                <p th:if="*{#strings.length(newsList[0].description) > 100}"
+                                                                                   th:text="*{#strings.substring(newsList[0].description,0,100)} + '...'"></p>
+                                                                            </div>
+                                                                            <a th:href="@{/news/{id}(id = *{newsList[0].id})}">Read
+                                                                                More</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="  col-md-5 columns">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 kode-simple-heading kode-align-left ">
+                                        <div class="heading5 black-11">
+                                            <h4 style="color:#ffffff">Latest <span
+                                                style="color:#e01a22">News</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="blog-item-wrapper ">
+                                            <div class="blog-item-holder">
+                                                <div class="kode-blog-list kode-modern-blog row">
+                                                    <div class="clear clearfix"></div>
+                                                    <th:block th:each="news : *{newsList}"
+                                                              th:if="${newsStat.index >= 1}">
+                                                        <div class="col-sm-6 col-md-12">
+                                                            <div class="kode-item kode-blog-medium kode-odd">
+                                                                <article id="post-171-12"
+                                                                         class="ftb-latestnew2-wrap post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-goal-post tag-goal tag-post tag-game tag-soccer tag-champions">
+                                                                    <div class="ftb-latestnew2">
+                                                                        <div class="ftb-new-dec">
+                                                                            <figure>
+                                                                                <div class="kode-blog-thumbnail">
+                                                                                    <img style="height: 140px;width: 120px" th:src="@{/resources/news/{img}(img = ${news.imgUrl})}"
+                                                                                            alt=""/>
+                                                                                </div>
+                                                                            </figure>
+                                                                            <div class="text">
+                                                                                <h4>
+                                                                                    <a th:if="${#strings.length(news.title) <= 30}"
+                                                                                       th:href="@{/news/{id}(id = ${news.id})}"
+                                                                                       th:text="${news.title}">
+                                                                                    </a>
+                                                                                    <a th:if="${#strings.length(news.title) > 30}"
+                                                                                       th:href="@{/news/{id}(id = ${news.id})}"
+                                                                                       th:text="${#strings.substring(news.title,0,30)}">
+                                                                                    </a>
+
+                                                                                </h4>
+                                                                                <p th:if="${#strings.length(news.description) <= 100}"
+                                                                                   th:text="${news.description}"></p>
+                                                                                <p th:if="${#strings.length(news.description) > 100}"
+                                                                                   th:text="${#strings.substring(news.description,0,100)} + '...'"></p>
+
+                                                                                <a th:href="@{/news/{id}(id = ${news.id})}">
+                                                                                    Read More</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+
+                                                    </th:block>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="content-section-9">
+                <div class="section-container container">
+                    <div class="row">
+                        <div class="clear"></div>
+                        <div class="kode-item kode-divider-item" style="margin-bottom: 70px;">
+                            <div class="kode-divider"></div>
+                        </div>
+
+                        <div class="clear"></div>
+                        <div class="clear"></div>
+                        <div class="clear"></div>
+                        <div class="kode-item kode-divider-item" style="margin-bottom: 20px;">
+                            <div class="kode-divider"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<footer class="football-footer footer-bottom-6">
+    <div class="container">
+        <div class="row">
+            <div id="goal_post_contact_widget-2"
+                 class="col-sm-6 col-md-4 widget widget_goal_post_contact_widget kode-widget">
+                <div class="widget spb-widget spb-text-widget">
+                    <div style="width: 100px" class="ft-logo"><a href="goalpost.1.html"><img
+                            src="/resources/icons/logo.png" alt=""><span style="color: green">Live Football</span></a></div>
+                    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante at nunc pretium
+                        mattis. Nunc ac semp a libero et, iaculis gravida orci. Suspendisse imperdiet dolor in
+                        tristique dignissim. Fusce lacus dolor, accumsan . ..</p>
+                    <ul class="spb-social2"></ul>
+                </div>
+            </div>
+            <div id="goal_post_popular_post_widget-2"
+                 class="col-sm-6 col-md-4 widget widget_goal_post_popular_post_widget kode-widget">
+
+            </div>
+            <div id="goal_post_flickr_widget-2"
+                 class="col-sm-6 col-md-4 widget widget_goal_post_flickr_widget kode-widget">
+            </div>
+        </div>
+        <div class="spb-copyright">
+            <span>Copyright ©  2018 Live football</span>
+        </div>
+    </div>
+</footer>
+</div>
+<script type="text/javascript" src="/resources/wp-content/cache/minify/05631.js"></script>
+<script type="text/javascript" src="/resources/js/generic.js"></script>
+<script type="text/javascript" src="/resources/js/register.js"></script>
+<script type="text/javascript" src="/resources/js/login.js"></script>
 </body>
 </html>
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 113419/114427 objects using disk
+Page Caching using disk: enhanced
+Minified using disk
+Database Caching 464/796 queries in 0.925 seconds using disk
+
+ Served from: templateindustry.com @ 2017-07-13 07:18:39 by W3 Total Cache -->

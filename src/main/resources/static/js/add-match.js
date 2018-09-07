@@ -1,85 +1,78 @@
 $(document).ready(function () {
 
-    $(".league-table-input").on("input",function (event) {
+    $(".matches-input").on("input",function (event) {
         var name = $(this).attr("name");
         var value = $(this).val();
         isValidData(name,value,event);
     });
 
-    $("#clubId-select").on("change",function (event) {
+    $(".matches-select").on("change",function (event) {
         var value = $(this).val();
         var name = $(this).attr("name");
         isValidData(name,value,event);
     });
 
-    $("#add-league-table").on("submit",function (event) {
-        var inputTags = $(".league-table-input");
+    $("#add-matches").on("submit",function (event) {
+        var inputTags = $(".matches-input");
         $.each(inputTags,function (i, input) {
             var name = $(input).attr("name");
             var value = $(input).val();
             isValidData(name,value,event);
         });
+        var master =$("#masterId-select").val();
+        var guest =$("#guestId-select").val();
+        if(master != 0 && guest != 0 && master == guest){
+            event.preventDefault();
+            $("#masterIdError").text("master does not must be equals guest");
+            $("#guestIdError").text("guest does not must be equals master")
+        }
     })
 });
 
 function isValidData(name, value, event) {
     switch (name){
-        case "played":
-            if(value == null || value < 0){
+        case "masterId":
+            if(value == null || value <= 0){
                 event.preventDefault();
-                $("#played").attr("class","form-control form-control-sm is-invalid");
-                $("#playedError").text("in played field wrong data");
+                $("#masterIdError").text("please choose a club");
             }else {
-                $("#played").attr("class","form-control form-control-sm is-valid");
-                $("#playedError").text("");
+                $("#masterIdError").text("");
             };
             break;
-        case "won":
-            if(value == null || value < 0){
+        case "guestId":
+            if(value == null || value <= 0){
                 event.preventDefault();
-                $("#won").attr("class","form-control form-control-sm is-invalid");
-                $("#wonError").text("in won field wrong data");
+                $("#guestIdError").text("please choose a club");
             }else {
-                $("#won").attr("class","form-control form-control-sm is-valid");
-                $("#wonError").text("");
+                $("#guestIdError").text("");
             };
             break;
-        case "drawn":
-            if(value == null || value < 0){
+        case "date":
+            if(value == null || value.length != 10){
                 event.preventDefault();
-                $("#drawn").attr("class","form-control form-control-sm is-invalid");
-                $("#drawnError").text("in drawn field wrong data");
+                $("#dateError").text("invalid date format");
             }else {
-                $("#drawn").attr("class","form-control form-control-sm is-valid");
-                $("#drawnError").text("");
+                $("#dateError").text("");
             };
             break;
-        case "lost":
-            if(value == null || value < 0){
+        case "time":
+            if(value == null || value.length != 5){
                 event.preventDefault();
-                $("#lost").attr("class","form-control form-control-sm is-invalid");
-                $("#lostError").text("in lost field wrong data");
+                $("#time").attr("class","form-control form-control-sm is-invalid");
+                $("#timeError").text("in time field wrong data");
             }else {
-                $("#lost").attr("class","form-control form-control-sm is-valid");
-                $("#lostError").text("");
+                $("#time").attr("class","form-control form-control-sm is-valid");
+                $("#timeError").text("");
             };
             break;
-        case "points":
-            if(value == null || value < 0){
+        case "account":
+            if(value != null && value.length >5){
                 event.preventDefault();
-                $("#points").attr("class","form-control form-control-sm is-invalid");
-                $("#pointsError").text("in points field wrong data");
+                $("#account").attr("class","form-control form-control-sm is-invalid");
+                $("#accountError").text("in account field wrong data");
             }else {
-                $("#points").attr("class","form-control form-control-sm is-valid");
-                $("#pointsError").text("");
-            };
-            break;
-        case "clubId":
-            if(value <= 0){
-                event.preventDefault();
-                $("#" + name + "Error").text("please choose a club");
-            }else {
-                $("#" + name + "Error").text("");
+                $("#account").attr("class","form-control form-control-sm is-valid");
+                $("#accountError").text("");
             };
             break;
     }

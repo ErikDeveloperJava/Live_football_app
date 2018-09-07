@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add club</title>
+    <title>Live football</title>
     <!-- Vendor styles -->
     <link rel="stylesheet"
           href="/resources/admin/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
@@ -31,11 +31,11 @@
         </div>
 
         <div class="logo hidden-sm-down">
-            <h1><a href="index.html">Admin Page</a></h1>
+            <h1><a href="/admin">Admin Page</a></h1>
         </div>
 
         <ul class="top-nav">
-            <li class="hidden-xl-up"><a href="data-table.html" data-sa-action="search-open"><i
+            <li class="hidden-xl-up"><a href="/admin" data-sa-action="search-open"><i
                     class="zmdi zmdi-search"></i></a></li>
 
         </ul>
@@ -108,80 +108,53 @@
     <section class="content">
         <div class="content__inner">
             <header class="content__title">
-                <h1>Add Club</h1>
+                <h1>Add Match</h1>
             </header>
 
             <div class="card">
                 <div class="card-body">
-                    <form action="/admin/club/add" method="post" id="add-club" enctype="multipart/form-data" th:object="${form}">
-                        <div class="form-group">
-                            <span id="nameError" style="color: red" th:errors="*{name}"></span><br/>
-                            <span id="nameError" style="color: red" th:unless="${#fields.hasErrors('name')}"></span><br/>
-                            <input type="text" id="name" th:field="*{name}" class="form-control form-control-sm club-input" placeholder="Name...">
-                            <i class="form-group__bar"></i>
-                        </div>
-                        <div class="form-group">
-                            <span id="descriptionError" style="color: red" th:errors="*{description}"></span><br/>
-                            <span id="descriptionError" style="color: red" th:unless="${#fields.hasErrors('description')}"></span><br/>
-                            <textarea id="description" class="form-control club-input" th:field="*{description}" rows="5" placeholder="Description..."></textarea>
-                            <i class="form-group__bar"></i>
-                        </div>
-                        <div class="form-group">
-                            <span id="trainerError" style="color: red" th:errors="*{trainer}"></span><br/>
-                            <span id="trainerError" style="color: red" th:unless="${#fields.hasErrors('trainer')}"></span><br/>
-                            <input type="text" id="trainer" th:field="*{trainer}" class="form-control form-control-sm club-input" placeholder="Trainer...">
-                            <i class="form-group__bar"></i>
-                        </div>
+                    <form action="/admin/match/add" method="post" id="add-matches" enctype="multipart/form-data" th:object="${form}">
 
                         <div class="form-group">
-                            <span id="stadiumError" style="color: red" th:errors="*{stadium}"></span><br/>
-                            <span id="stadiumError" style="color: red" th:unless="${#fields.hasErrors('stadium')}"></span><br/>
-                            <input type="text" id="stadium" th:field="*{stadium}" class="form-control form-control-sm club-input" placeholder="Stadium...">
-                            <i class="form-group__bar"></i>
-                        </div>
-
-                        <div class="form-group">
-                            <span id="ownerError" style="color: red" th:errors="*{owner}"></span><br/>
-                            <span id="ownerError" style="color: red" th:unless="${#fields.hasErrors('owner')}"></span><br/>
-                            <input type="text" id="owner" th:field="*{owner}" class="form-control form-control-sm club-input" placeholder="Owner...">
-                            <i class="form-group__bar"></i>
-                        </div>
-
-                        <div class="form-group">
-                            <span id="championError" style="color: red" th:errors="*{champion}"></span><br/>
-                            <span id="championError" style="color: red" th:unless="${#fields.hasErrors('champion')}"></span><br/>
-                            <span>is champion</span>
-                            <br/>
-                            <br/>
-                            <label class="custom-control custom-radio">
-                                <input id="yes" th:field="*{champion}" value="yes" type="radio" class="custom-control-input champion">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Yes</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input id="no" th:field="*{champion}" value="no" type="radio" class="custom-control-input champion">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">No</span>
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <span id="leagueIdError" style="color: red" th:errors="*{leagueId}"></span><br/>
-                            <span id="leagueIdError" style="color: red" th:unless="${#fields.hasErrors('leagueId')}"></span><br/>
-                            <select id="league-select" th:field="*{leagueId}">
-                                <option value="0" >Select league</option>
-                                <th:block th:each="league : ${leagues}">
-                                    <option th:value="${league.id}" th:text="${league.name}">name</option>
+                            <span id="masterIdError" style="color: red" th:errors="*{masterId}"></span><br/>
+                            <span id="masterIdError" style="color: red" th:unless="${#fields.hasErrors('masterId')}"></span><br/>
+                            <select style="background-color: #772036;color: white;border: none;" id="masterId-select" class="matches-input matches-select" th:field="*{masterId}">
+                                <option value="0" >Select master</option>
+                                <th:block th:each="club : ${clubs}">
+                                    <option th:value="${club.id}" th:text="${club.name}">name</option>
                                 </th:block>
                             </select>
                         </div>
                         <div class="form-group">
-                            <span id="imageError" style="color: red" th:errors="*{image}"></span><br/>
-                            <span id="imageError" style="color: red" th:unless="${#fields.hasErrors('image')}"></span><br/>
-                            <input  type="file" th:field="*{image}" id="file" class="inputfile club-input" />
-                            <label style="cursor: pointer" for="file" >Choose a photo</label><br/>
+                            <span id="guestIdError" style="color: red" th:errors="*{guestId}"></span><br/>
+                            <span id="guestIdError" style="color: red" th:unless="${#fields.hasErrors('guestId')}"></span><br/>
+                            <select style="background-color: #772036;color: white;border: none;" id="guestId-select" class="matches-input matches-select" th:field="*{guestId}">
+                                <option value="0" >Select master</option>
+                                <th:block th:each="club : ${clubs}">
+                                    <option th:value="${club.id}" th:text="${club.name}">name</option>
+                                </th:block>
+                            </select>
                         </div>
 
+                        <div class="form-group">
+                            <span id="dateError" style="color: red" th:errors="*{date}"></span><br/>
+                            <span id="dateError" style="color: red" th:unless="${#fields.hasErrors('date')}"></span><br/>
+                            <label>Date</label>
+                            <br/>
+                            <input type="date" id="date_" class="matches-input" th:field="*{date}">
+                        </div>
+                        <div class="form-group">
+                            <span id="timeError" style="color: red" th:errors="*{time}"></span><br/>
+                            <span id="timeError" style="color: red" th:unless="${#fields.hasErrors('time')}"></span><br/>
+                            <input type="text" id="time" th:field="*{time}" class="form-control form-control-sm matches-input" placeholder="Time(01:12)">
+                            <i class="form-group__bar"></i>
+                        </div>
+                        <div class="form-group">
+                            <span id="accountError" style="color: red" th:errors="*{account}"></span><br/>
+                            <span id="accountError" style="color: red" th:unless="${#fields.hasErrors('account')}"></span><br/>
+                            <input type="text" id="account" th:field="*{account}" class="form-control form-control-sm matches-input" placeholder="Account(1:2)">
+                            <i class="form-group__bar"></i>
+                        </div>
                         <div class="form-group">
                             <button style="cursor: pointer" type="submit" class="btn btn-success">Add</button>
                         </div>
@@ -211,6 +184,6 @@
 
 <!-- App functions and actions -->
 <script src="/resources/admin/js/app.min.js"></script>
-<script src="/resources/js/add-club.js"></script>
+<script src="/resources/js/add-match.js"></script>
 </body>
 </html>

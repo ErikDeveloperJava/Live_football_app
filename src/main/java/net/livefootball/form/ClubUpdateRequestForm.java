@@ -1,4 +1,14 @@
 package net.livefootball.form;
 
-public class ClubUpdateRequestForm {
+import lombok.*;
+import net.livefootball.model.League;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ClubUpdateRequestForm extends ClubRequestForm {
+
+    private int id;
+
+    private League league;
 }

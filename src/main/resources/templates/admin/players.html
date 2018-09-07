@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <title>Live football</title>
     <!-- Vendor styles -->
     <link rel="stylesheet"
           href="/resources/admin/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
@@ -30,11 +30,11 @@
         </div>
 
         <div class="logo hidden-sm-down">
-            <h1><a href="index.html">Admin Page</a></h1>
+            <h1><a href="/admin">Admin Page</a></h1>
         </div>
 
         <ul class="top-nav">
-            <li class="hidden-xl-up"><a href="data-table.html" data-sa-action="search-open"><i
+            <li class="hidden-xl-up"><a href="/admin" data-sa-action="search-open"><i
                     class="zmdi zmdi-search"></i></a></li>
 
         </ul>
@@ -102,7 +102,7 @@
     <section class="content">
         <div class="content__inner">
             <header class="content__title">
-                <h1>All clubs</h1>
+                <h1>All players</h1>
                 <small></small>
 
                 <div class="actions">
@@ -116,30 +116,30 @@
             </header>
 
             <div class="row team">
-                <th:block th:each="club : ${clubs}">
+                <th:block th:each="player : ${players}">
                     <div class="col-md-6 col-lg-4">
                         <div class="card team__item">
-                            <img style="border: none" th:src="@{/resources/clubs/{img}(img = ${club.imgUrl})}" class="team__img" alt="">
+                            <img style="border: none" th:src="@{/resources/players/{img}(img = ${player.imgUrl})}" class="team__img" alt="">
 
-                            <div class="card-body">
-                                <h4 class="card-title" th:text="${club.name}"></h4>
-                                <h6 class="card-subtitle" style="color: #95a9bb">manager:
-                                    <span style="color: white;font-size: 12px" th:text="${club.trainer}"></span></h6>
+                            <div style="height: 230px" class="card-body">
+                                <h4 class="card-title" th:text="${player.name} + ' ' + ${player.surname}"></h4>
+                                <h6 class="card-subtitle" style="color: #95a9bb">nationality:
+                                    <span style="color: white;font-size: 12px" th:text="${player.nationality}"></span></h6>
 
-                                <h6 class="card-subtitle" style="color: #95a9bb">stadium:
-                                    <span style="color: white;font-size: 12px" th:text="${club.stadium}"></span></h6>
+                                <h6 class="card-subtitle" style="color: #95a9bb">age:
+                                    <span style="color: white;font-size: 12px" th:text="${player.age}"></span></h6>
 
-                                <h6 class="card-subtitle" style="color: #95a9bb">owner:
-                                    <span style="color: white;font-size: 12px" th:text="${club.owner}"></span></h6>
+                                <h6 class="card-subtitle" style="color: #95a9bb">position:
+                                    <span style="color: white;font-size: 12px" th:text="${player.position}"></span></h6>
 
-                                <h6 class="card-subtitle" style="color: #95a9bb">league:
-                                    <span style="color: white;font-size: 12px" th:text="${club.league.name}"></span></h6>
+                                <h6 class="card-subtitle" style="color: #95a9bb">club:
+                                    <span style="color: white;font-size: 12px" th:text="${player.club.name}"></span></h6>
 
                                 <div class="team__social">
-                                    <a th:href="@{/admin/club/delete/{id}(id = ${club.id})}">
+                                    <a th:href="@{/admin/player/delete/{id}(id = ${player.id})}">
                                         <i class="zmdi zmdi-delete zmdi-hc-fw"></i>
                                     </a>
-                                    <a th:href="@{/admin/club/update/{id}(id = ${club.id})}">
+                                    <a th:href="@{/admin/player/update/{id}(id = ${player.id})}">
                                         <i class="zmdi zmdi-assignment zmdi-hc-fw"></i>
                                     </a>
                                 </div>
@@ -148,7 +148,7 @@
                     </div>
                 </th:block>
             </div>
-            <div th:if="${#lists.size(clubs) > 0}" class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">
+            <div th:if="${#lists.size(players) > 0}" class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">
                 <a th:if="${pageNumber eq 0}" class="paginate_button previous disabled" aria-controls="data-table" data-dt-idx="0" tabindex="0"
                    id="data-table_previous">Previous</a>
                 <a th:if="${pageNumber > 0}" th:href="@{${#request.getRequestURI()}(page = ${pageNumber})}"

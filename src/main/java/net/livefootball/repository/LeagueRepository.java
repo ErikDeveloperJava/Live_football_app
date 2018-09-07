@@ -1,4 +1,7 @@
 package net.livefootball.repository;
 
-public interface LeagueRepository {
+import net.livefootball.model.League;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LeagueRepository extends JpaRepository<League,Integer> {
 }

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script type="text/javascript" src="/resources/js/jquery.js"></script>
     <link rel="pingback" href="http://templateindustry.com/themeforest/wp/goalpost/xmlrpc.php"/>
-    <title>Player Grid &#8211; Goal Post</title>
+    <title>Live Football</title>
     <link rel='dns-prefetch' href='http://fonts.googleapis.com/'/>
     <link rel='dns-prefetch' href='http://s.w.org/'/>
     <link rel="alternate" type="application/rss+xml" title="Goal Post &raquo; Feed" href="/resources/feed/index.html"/>
@@ -348,10 +348,6 @@
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
                                             <a href="/matches/todays">Today's</a>
                                         </li>
-                                        <li id="menu-item-1213"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
-                                            <a href="/matches">All</a>
-                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-223"
@@ -371,13 +367,13 @@
     </header>
     <div class="sub_header_style">
         <div class="kode_benner1_text">
-            <h2>Clubs</h2></div>
+            <h2>Players</h2></div>
         <div class="kode_benner1_cols">
             <div class="container kf_container">
                 <ul id="breadcrumbs" class="breadcrumb">
                     <li class="item-home"><a class="bread-link bread-home" href="/" title="Homepage">Homepage</a>
                     </li>
-                    <li><a style="cursor: pointer" >Clubs</a></li>
+                    <li><a style="cursor: pointer" >Players</a></li>
                 </ul>
             </div>
         </div>
@@ -393,22 +389,21 @@
                                 <div class="kode-team kode-team-list col-md-12">
                                     <ul class="row">
                                         <li class="clear"></li>
-                                        <th:block th:each="club : ${clubs}">
+                                        <th:block th:each="player : ${players}">
                                             <li class="col-sm-6 col-md-4 columns">
                                                 <div class="ftb-team-thumb">
                                                     <figure>
                                                         <img style="height: 200px"
-                                                             th:src="@{/resources/clubs/{img}(img = ${club.imgUrl})}"
+                                                             th:src="@{/resources/players/{img}(img = ${player.imgUrl})}"
                                                              class="attachment-goalpost-small-grid-size size-goalpost-small-grid-size wp-post-image"
                                                              alt=""/>
                                                     </figure>
                                                     <div class="ftb-team-dec">
                                                         <div class="text">
-                                                            <a th:href="@{/club/{id}(id = ${club.id})}"
-                                                               th:text="${club.name}">Cenk Tosun</a>
-                                                            <p th:text="'League: ' + ${club.league.name}">League</p>
+                                                            <a th:text="${player.name} + ' ' + ${player.surname}">name surname</a>
+                                                            <p th:text="'Club: ' + ${player.club.name}">Name</p>
                                                         </div>
-                                                        <a class="arrow-iconbtn" th:href="@{/club/{id}(id = ${club.id})}">
+                                                        <a class="arrow-iconbtn">
                                                             <i class="fa fa-arrow-right "></i>
                                                         </a>
                                                     </div>
@@ -417,7 +412,7 @@
                                         </th:block>
                                     </ul>
                                 </div>
-                                <div th:if="${#lists.size(clubs) > 0}" class="col-md-12">
+                                <div th:if="${#lists.size(players) > 0}" class="col-md-12">
                                     <div class="kode-pagination">
                                         <a th:if="${pageNumber eq 0}" class="next page-numbers">Prev</a>
                                         <a th:if="${pageNumber > 0}" class="next page-numbers"

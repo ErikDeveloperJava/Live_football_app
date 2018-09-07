@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="pingback" href="http://templateindustry.com/themeforest/wp/goalpost/xmlrpc.php"/>
-    <title>Iceland &#8211; Goal Post</title>
+    <title>Live football</title>
     <script type="text/javascript" src="/resources/js/jquery.js"></script>
     <link rel='dns-prefetch' href='http://fonts.googleapis.com/'/>
     <link rel='dns-prefetch' href='http://s.w.org/'/>
@@ -162,7 +162,8 @@
     <link rel="alternate" type="text/xml+oembed"
           href="/resources/wp-json/oembed/1.0/embed@url=http%253A%252F%252Ftemplateindustry.com%252Fthemeforest%252Fwp%252Fgoalpost%252Fteam%252Ficeland%252F&amp;format=xml"/>
 </head>
-<body th:object="${leaguePage}" class="team-template-default single single-team postid-16 kode-loader kode-pure-white kode-header-icons-simple">
+<body th:object="${clubPage}"
+      class="team-template-default single single-team postid-16 kode-loader kode-pure-white kode-header-icons-simple">
 <div class="body-wrapper" data-home="http://templateindustry.com/themeforest/wp/goalpost/">
     <header class="football">
         <div class="topbar4">
@@ -344,10 +345,6 @@
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
                                             <a href="/matches/todays">Today's</a>
                                         </li>
-                                        <li id="menu-item-1213"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257">
-                                            <a href="/matches">All</a>
-                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-223"
@@ -365,16 +362,15 @@
             </div>
         </div>
     </header>
-
     <div class="sub_header_style">
         <div class="kode_benner1_text">
-            <h2 th:text="*{league.name}">league name</h2></div>
+            <h2 th:text="*{club.name}">Club name</h2></div>
         <div class="kode_benner1_cols">
             <div class="container kf_container">
                 <ul id="breadcrumbs" class="breadcrumb">
                     <li class="item-home"><a class="bread-link bread-home" href="/" title="Homepage">Homepage</a>
                     </li>
-                    <li><a style="cursor: pointer" th:text="*{league.name}">league name</a></li>
+                    <li><a style="cursor: pointer" th:text="*{club.name}">league name</a></li>
                 </ul>
             </div>
         </div>
@@ -389,15 +385,39 @@
                                 <div class="kode_player_fig">
                                     <figure>
                                         <img style="height: 350px;"
-                                             th:src="@{/resources/leagues/{img}(img = *{league.imgUrl})}"
+                                             th:src="@{/resources/clubs/{img}(img = *{club.imgUrl})}"
                                              class="attachment-350x350 size-350x350 wp-post-image" alt=""
-                                             />
+                                        />
                                     </figure>
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-6">
-                                <div class="kode_player_item"><h2 class="kode_ply_titile" th:text="*{league.name}"></h2>
+                                <div class="kode_player_item"><h2 class="kode_ply_titile" th:text="*{club.name}"></h2>
                                     <div class="row">
+                                        <div class="kode-ply-slid">
+                                            <div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="kode_ply_list">
+                                                        <a >Manager: <span th:text="*{club.trainer}"></span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="kode_ply_list">
+                                                        <a>Stadium: <span th:text="*{club.stadium}"></span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="kode_ply_list">
+                                                        <a>Owner: <span th:text="*{club.owner}"></span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="kode_ply_list">
+                                                        <a>League: <span th:text="*{club.league.name}"></span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-md-12">
                                             <div class="kode_ply_text"><p></p>
                                                 <div class="kode_ply_icon"><h6>Social Network :</h6>
@@ -417,25 +437,28 @@
                             </div>
                         </div>
                         <div class="kode_ply_gallery">
-                            <p th:text="*{league.description}"></p>
+                            <p th:text="*{club.description}"></p>
                         </div>
                         <div class="kode_ply_gallery">
-                            <div class="heading5 black b_2"><h4><span>Clubs</span></h4></div>
-                            <th:block th:each="club : *{clubs}">
+                            <div class="heading5 black b_2"><h4><span>Players</span></h4></div>
+                            <th:block th:each="player : *{players}">
                                 <div class="col-md-4 col-sm-6">
                                     <div class="kode_player_fig">
                                         <figure>
                                             <img style="height: 230px"
-                                                     th:src="@{/resources/clubs/{img}(img = ${club.imgUrl})}"
-                                                     class="attachment-350x350 size-350x350 wp-post-image" alt=""/>
+                                                 th:src="@{/resources/players/{img}(img = ${player.imgUrl})}"
+                                                 class="attachment-350x350 size-350x350 wp-post-image" alt=""/>
                                             <figcaption>
                                                 <div class="kode_player_text">
                                                     <h6>Name:
-                                                        <a th:href="@{/club/{id}(id = ${club.id})}" th:text="${club.name}">
-
+                                                        <a th:text="${player.name} + ' ' + ${player.surname}">
                                                         </a>
                                                     </h6>
-                                                    <h6 th:text="'Stadium: ' + ${club.stadium}"></h6>
+                                                    <h6>Nationality:
+                                                        <a th:text="${player.nationality}">
+                                                        </a>
+                                                    </h6>
+
                                                 </div>
                                             </figcaption>
                                         </figure>
@@ -443,10 +466,12 @@
                                 </div>
                             </th:block>
                         </div>
-                        <a th:if="*{#lists.size(clubs) eq 9}" id="search_link1" th:href="@{/league/{id}/clubs(id = *{league.id})}" class="btn btn-default" role="button">Show all</a>
+                        <a th:if="*{#lists.size(players) eq 9}" id="search_link1"
+                           th:href="@{/club/{id}/players(id = *{club.id})}" class="btn btn-default" role="button">Show
+                            all</a>
                         <div class="kode_ply_gallery">
                             <div class="heading5 black b_2">
-                                <h4><span th:text="*{league.name} + ' table'">table</span></h4>
+                                <h4><span th:text="*{club.league.name} + ' table'">table</span></h4>
                             </div>
                             <table class="kode_ply_table">
                                 <tr class="kode_ply_first">
@@ -459,10 +484,23 @@
                                     <th>Points</th>
                                 </tr>
                                 <th:block th:each="table : *{tableList}">
-                                    <tr class="kode_ply_two">
+                                    <tr class="kode_ply_two" th:if="${table.club.id} eq *{club.id}">
+                                        <td class="league-name-first" style="color: green" th:text="${tableStat.index + 1}">position</td>
+                                        <td class="league-team-first">
+                                            <a style="color: green"  th:href="@{/club/{id}(id = ${table.club.id})}"
+                                               th:text="${table.club.name}">Germany</a>
+                                        </td>
+                                        <td class="league-team-score-first" style="color: green" th:text="${table.played}">20</td>
+                                        <td class="league-team-target-first" style="color: green" th:text="${table.won}">20</td>
+                                        <td class="league-team-ck-first" style="color: green" th:text="${table.drawn}">6</td>
+                                        <td class="league-team-rc-first" style="color: green" th:text="${table.lost}">3</td>
+                                        <td class="league-possession-first" style="color: green" th:text="${table.points}">60%</td>
+                                    </tr>
+                                    <tr class="kode_ply_two" th:unless="${table.club.id} eq *{club.id}">
                                         <td class="league-name-first" th:text="${tableStat.index + 1}">position</td>
                                         <td class="league-team-first">
-                                            <a th:href="@{/club/{id}(id = ${table.club.id})}" th:text="${table.club.name}">Germany</a>
+                                            <a th:href="@{/club/{id}(id = ${table.club.id})}"
+                                               th:text="${table.club.name}">Germany</a>
                                         </td>
                                         <td class="league-team-score-first" th:text="${table.played}">20</td>
                                         <td class="league-team-target-first" th:text="${table.won}">20</td>
@@ -486,7 +524,8 @@
                      class="col-sm-6 col-md-4 widget widget_goal_post_contact_widget kode-widget">
                     <div class="widget spb-widget spb-text-widget">
                         <div style="width: 100px" class="ft-logo"><a href="goalpost.1.html"><img
-                                src="/resources/icons/logo.png" alt=""><span style="color: green">Live Football</span></a></div>
+                                src="/resources/icons/logo.png" alt=""><span
+                                style="color: green">Live Football</span></a></div>
                         <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante at nunc pretium
                             mattis. Nunc ac semp a libero et, iaculis gravida orci. Suspendisse imperdiet dolor in
                             tristique dignissim. Fusce lacus dolor, accumsan . ..</p>

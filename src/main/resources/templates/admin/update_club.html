@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add club</title>
+    <title>Live foorball</title>
     <!-- Vendor styles -->
     <link rel="stylesheet"
           href="/resources/admin/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
@@ -31,11 +31,11 @@
         </div>
 
         <div class="logo hidden-sm-down">
-            <h1><a href="index.html">Admin Page</a></h1>
+            <h1><a href="/admin">Admin Page</a></h1>
         </div>
 
         <ul class="top-nav">
-            <li class="hidden-xl-up"><a href="data-table.html" data-sa-action="search-open"><i
+            <li class="hidden-xl-up"><a href="/admin" data-sa-action="search-open"><i
                     class="zmdi zmdi-search"></i></a></li>
 
         </ul>
@@ -113,7 +113,8 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="/admin/club/add" method="post" id="add-club" enctype="multipart/form-data" th:object="${form}">
+                    <form action="/admin/club/update" method="post" id="add-club" enctype="multipart/form-data" th:object="${form}">
+                        <input type="hidden" th:value="*{id}" th:field="*{id}">
                         <div class="form-group">
                             <span id="nameError" style="color: red" th:errors="*{name}"></span><br/>
                             <span id="nameError" style="color: red" th:unless="${#fields.hasErrors('name')}"></span><br/>
@@ -148,40 +149,43 @@
                         </div>
 
                         <div class="form-group">
-                            <span id="championError" style="color: red" th:errors="*{champion}"></span><br/>
-                            <span id="championError" style="color: red" th:unless="${#fields.hasErrors('champion')}"></span><br/>
+                            <span  style="color: red" th:errors="*{champion}"></span><br/>
                             <span>is champion</span>
                             <br/>
                             <br/>
                             <label class="custom-control custom-radio">
-                                <input id="yes" th:field="*{champion}" value="yes" type="radio" class="custom-control-input champion">
+                                <input th:if="*{#strings.equals(champion,'true')}" th:field="*{champion}" value="true" type="radio" class="custom-control-input " checked>
+                                <input  th:unless="*{#strings.equals(champion,'true')}" th:field="*{champion}" value="true" type="radio" class="custom-control-input ">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">Yes</span>
                             </label>
                             <label class="custom-control custom-radio">
-                                <input id="no" th:field="*{champion}" value="no" type="radio" class="custom-control-input champion">
+                                <input th:if="*{#strings.equals(champion,'false')}"
+                                       th:field="*{champion}"  value="false" type="radio" class="custom-control-input " checked>
+                                <input th:unless="*{#strings.equals(champion,'false')}"
+                                       th:field="*{champion}"  value="false" type="radio" class="custom-control-input ">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">No</span>
                             </label>
                         </div>
 
                         <div class="form-group">
-                            <span id="leagueIdError" style="color: red" th:errors="*{leagueId}"></span><br/>
-                            <span id="leagueIdError" style="color: red" th:unless="${#fields.hasErrors('leagueId')}"></span><br/>
-                            <select id="league-select" th:field="*{leagueId}">
-                                <option value="0" >Select league</option>
-                                <th:block th:each="league : ${leagues}">
+                            <span id="leagueIdError" style="color: red" th:errors="*{league.id}"></span><br/>
+                            <span id="leagueIdError" style="color: red" th:unless="${#fields.hasErrors('league.id')}"></span><br/>
+                            <select style="background-color: #772036;color: white;border: none;" id="league-select" th:field="*{league.id}">
+                                <option th:value="*{league.id}" th:text="*{league.name}">Select league</option>
+                                <th:block th:each="league : ${leagues}" th:unless="${league.id} eq *{league.id}">
                                     <option th:value="${league.id}" th:text="${league.name}">name</option>
                                 </th:block>
                             </select>
                         </div>
+
                         <div class="form-group">
                             <span id="imageError" style="color: red" th:errors="*{image}"></span><br/>
                             <span id="imageError" style="color: red" th:unless="${#fields.hasErrors('image')}"></span><br/>
-                            <input  type="file" th:field="*{image}" id="file" class="inputfile club-input" />
-                            <label style="cursor: pointer" for="file" >Choose a photo</label><br/>
+                            <input  type="file" th:field="*{image}" id="asd" class="inputfile " />
+                            <label style="background-color: #772036;color: white;cursor: pointer" for="asd" >Choose a photo</label><br/>
                         </div>
-
                         <div class="form-group">
                             <button style="cursor: pointer" type="submit" class="btn btn-success">Add</button>
                         </div>

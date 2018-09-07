@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add club</title>
+    <title>Live football</title>
     <!-- Vendor styles -->
     <link rel="stylesheet"
           href="/resources/admin/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
@@ -31,11 +31,11 @@
         </div>
 
         <div class="logo hidden-sm-down">
-            <h1><a href="index.html">Admin Page</a></h1>
+            <h1><a href="/admin">Admin Page</a></h1>
         </div>
 
         <ul class="top-nav">
-            <li class="hidden-xl-up"><a href="data-table.html" data-sa-action="search-open"><i
+            <li class="hidden-xl-up"><a href="/admin" data-sa-action="search-open"><i
                     class="zmdi zmdi-search"></i></a></li>
 
         </ul>
@@ -108,44 +108,57 @@
     <section class="content">
         <div class="content__inner">
             <header class="content__title">
-                <h1>Add Club</h1>
+                <h1>Add league table</h1>
             </header>
 
             <div class="card">
                 <div class="card-body">
-                    <form action="/admin/news/add" method="post" id="add-news" enctype="multipart/form-data" th:object="${form}">
+                    <form action="/admin/league-table/add" method="post" id="add-league-table" th:object="${form}">
                         <div class="form-group">
-                            <span id="titleError" style="color: red" th:errors="*{title}"></span><br/>
-                            <span id="titleError" style="color: red" th:unless="${#fields.hasErrors('title')}"></span><br/>
-                            <input type="text" id="title" th:field="*{title}" class="form-control form-control-sm news-input" placeholder="Title...">
+                            <span id="playedError" style="color: red" th:unless="${#fields.hasErrors('played')}"></span><br/>
+                            <span id="playedError" style="color: red" th:errors="*{played}"></span><br/>
+                            <label for="played">Played</label>
+                            <input type="number" id="played" th:field="*{played}" class="form-control form-control-sm league-table-input" placeholder="Played...">
                             <i class="form-group__bar"></i>
                         </div>
                         <div class="form-group">
-                            <span id="descriptionError" style="color: red" th:errors="*{description}"></span><br/>
-                            <span id="descriptionError" style="color: red" th:unless="${#fields.hasErrors('description')}"></span><br/>
-                            <textarea id="description" class="form-control news-input" th:field="*{description}" rows="5" placeholder="Description..."></textarea>
+                            <span id="wonError" style="color: red" th:unless="${#fields.hasErrors('won')}"></span><br/>
+                            <span id="wonError" style="color: red" th:errors="*{won}"></span><br/>
+                            <label for="won">Won</label>
+                            <input type="number" id="won" th:field="*{won}" class="form-control form-control-sm league-table-input" placeholder="Won...">
                             <i class="form-group__bar"></i>
                         </div>
                         <div class="form-group">
-                            <span id="leagueIdError" style="color: red" th:errors="*{leagueId}"></span><br/>
-                            <span id="leagueIdError" style="color: red" th:unless="${#fields.hasErrors('leagueId')}"></span><br/>
-                            <select id="league-select" class="news-input" th:field="*{leagueId}">
-                                <option value="0" >Select league</option>
-                                <th:block th:each="league : ${leagues}">
-                                    <option th:value="${league.id}" th:text="${league.name}">name</option>
-                                </th:block>
-                            </select>
+                            <span id="drawnError" style="color: red" th:unless="${#fields.hasErrors('drawn')}"></span><br/>
+                            <span id="drawnError" style="color: red" th:errors="*{drawn}"></span><br/>
+                            <label for="drawn">Drawn</label>
+                            <input type="number" id="drawn" th:field="*{drawn}" class="form-control form-control-sm league-table-input" placeholder="Drawn...">
+                            <i class="form-group__bar"></i>
                         </div>
                         <div class="form-group">
-                            <span id="imageError" style="color: red" th:errors="*{image}"></span><br/>
-                            <span id="imageError" style="color: red" th:unless="${#fields.hasErrors('image')}"></span><br/>
-                            <input  type="file" th:field="*{image}" id="image" class="inputfile news-input" />
-                            <label style="cursor: pointer" for="image" >Choose a photo</label><br/>
+                            <span id="lostError" style="color: red" th:unless="${#fields.hasErrors('lost')}"></span><br/>
+                            <span id="lostError" style="color: red" th:errors="*{lost}"></span><br/>
+                            <label for="lost">Lost</label>
+                            <input type="number" id="lost" th:field="*{lost}" class="form-control form-control-sm league-table-input" placeholder="Lost...">
+                            <i class="form-group__bar"></i>
+                        </div>
+                        <div class="form-group">
+                            <span id="pointsError" style="color: red" th:unless="${#fields.hasErrors('points')}"></span><br/>
+                            <span id="pointsError" style="color: red" th:errors="*{points}"></span><br/>
+                            <label for="points">Points</label>
+                            <input type="number" id="points" th:field="*{points}" class="form-control form-control-sm league-table-input" placeholder="Points...">
+                            <i class="form-group__bar"></i>
                         </div>
 
                         <div class="form-group">
-                            <input  type="file" th:field="*{video}" id="video" class="inputfile" />
-                            <label style="cursor: pointer" for="video" >Choose a video</label><br/>
+                            <span id="clubIdError" style="color: red" th:errors="*{clubId}"></span><br/>
+                            <span id="clubIdError" style="color: red" th:unless="${#fields.hasErrors('clubId')}"></span><br/>
+                            <select style="background-color: #772036;color: white;border: none;" id="clubId-select" class="league-table-input" th:field="*{clubId}">
+                                <option value="0" >Select club</option>
+                                <th:block th:each="club : ${clubs}">
+                                    <option th:value="${club.id}" th:text="${club.name}">name</option>
+                                </th:block>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -177,6 +190,6 @@
 
 <!-- App functions and actions -->
 <script src="/resources/admin/js/app.min.js"></script>
-<script src="/resources/js/add-news.js"></script>
+<script src="/resources/js/add-league-table.js"></script>
 </body>
 </html>

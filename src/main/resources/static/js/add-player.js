@@ -1,52 +1,44 @@
 $(document).ready(function () {
 
-    var size = 0;
 
-    $(".club-input").on("input",function (event) {
+    $(".player-input").on("input",function (event) {
         var name = $(this).attr("name");
         var value = $(this).val();
         isValidData(name,value,event);
     });
 
-    $("#league-select").on("change",function () {
+    $(".player-select").on("change",function (event) {
         var value = $(this).val();
-        if(value <= 0){
-            $("#leagueIdError").text("please choose a category");
-            $("#leagueIdError").attr("class","form-control is-invalid")
-        }else {
-            $("#leagueIdError").text("");
-            $("#leagueIdError").attr("class","form-control is-valid")
-        }
+        var name = $(this).attr("name");
+        isValidSelect(value,name,event)
     });
 
-    $(".champion").on("change",function () {
-        size++;
-        $("#championError").text("");
-    })
-
-    $("#add-club").on("submit",function (event) {
-        var inputTags = [$("#name"),$("#trainer"),$("#stadium"),
-        $("#owner"),$("#file"),$("#description")];
+    $("#add-player").on("submit",function (event) {
+        var inputTags = $(".player-input");
         $.each(inputTags,function (i, input) {
             var name = $(input).attr("name");
             var value = $(input).val();
             isValidData(name,value,event);
         });
-        var value = $("#league-select").val();
-        if(value <= 0){
-            $("#leagueIdError").text("please choose a category");
-            $("#leagueIdError").attr("class","form-control is-invalid")
-        }else {
-            $("#leagueIdError").text("");
-            $("#leagueIdError").attr("class","form-control is-valid")
-        };
-        if(size == 0){
-            $("#championError").text("please choose Yes or No");
-        }else {
-            $("#championError").text("");
-        }
+        var value = $("#position-select").val();
+        var name = $("#position-select").attr("name");
+        isValidSelect(value,name,event);
+        value = $("#clubId-select").val();
+        name = $("#clubId-select").attr("name");
+        isValidSelect(value,name,event);
     })
 });
+
+function isValidSelect(value, name,event) {
+    if(value <= 0){
+        event.preventDefault();
+        $("#" + name + "Error").text("please choose a position");
+        $("#" + name + "-select").attr("class","is-invalid player-select")
+    }else {
+        $("#" + name + "Error").text("");
+        $("#" + name + "-select").attr("class","is-valid player-select")
+    }
+}
 
 function isValidData(name, value, event) {
     switch (name){
@@ -60,44 +52,34 @@ function isValidData(name, value, event) {
                 $("#nameError").text("");
             };
             break;
-        case "description":
-            if(value == null || value.length < 8){
-                event.preventDefault();
-                $("#description").attr("class","form-control form-control-sm is-invalid");
-                $("#descriptionError").text("in description field wrong data");
-            }else {
-                $("#description").attr("class","form-control form-control-sm is-valid");
-                $("#descriptionError").text("");
-            };
-            break;
-        case "trainer":
+        case "surname":
             if(value == null || value.length < 2 || value.length > 255){
                 event.preventDefault();
-                $("#trainer").attr("class","form-control form-control-sm is-invalid");
-                $("#trainerError").text("in trainer field wrong data");
+                $("#surname").attr("class","form-control form-control-sm is-invalid");
+                $("#surnameError").text("in surname field wrong data");
             }else {
-                $("#trainer").attr("class","form-control form-control-sm is-valid");
-                $("#trainerError").text("");
+                $("#surname").attr("class","form-control form-control-sm is-valid");
+                $("#surnameError").text("");
             };
             break;
-        case "stadium":
+        case "nationality":
             if(value == null || value.length < 2 || value.length > 255){
                 event.preventDefault();
-                $("#stadium").attr("class","form-control form-control-sm is-invalid");
-                $("#stadiumError").text("in stadium field wrong data");
+                $("#nationality").attr("class","form-control form-control-sm is-invalid");
+                $("#nationalityError").text("in nationality field wrong data");
             }else {
-                $("#stadium").attr("class","form-control form-control-sm is-valid");
-                $("#stadiumError").text("");
+                $("#nationality").attr("class","form-control form-control-sm is-valid");
+                $("#nationalityError").text("");
             };
             break;
-        case "owner":
-            if(value == null || value.length < 2 || value.length > 255){
+        case "birthDate":
+            if(value == null || value.length != 10){
                 event.preventDefault();
-                $("#owner").attr("class","form-control form-control-sm is-invalid");
-                $("#ownerError").text("in owner field wrong data");
+                $("#birthDate").attr("class","is-invalid player-input");
+                $("#birthDateError").text("in birth date field wrong data");
             }else {
-                $("#owner").attr("class","form-control form-control-sm is-valid");
-                $("#ownerError").text("");
+                $("#birthDate").attr("class","is-valid player-input");
+                $("#birthDateError").text("");
             };
             break;
         case "image":

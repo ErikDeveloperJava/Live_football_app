@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add league</title>
+    <title>Live football</title>
     <!-- Vendor styles -->
     <link rel="stylesheet"
           href="/resources/admin/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
@@ -31,11 +31,11 @@
         </div>
 
         <div class="logo hidden-sm-down">
-            <h1><a href="index.html">Admin Page</a></h1>
+            <h1><a href="/admin">Admin Page</a></h1>
         </div>
 
         <ul class="top-nav">
-            <li class="hidden-xl-up"><a href="data-table.html" data-sa-action="search-open"><i
+            <li class="hidden-xl-up"><a href="/admin" data-sa-action="search-open"><i
                     class="zmdi zmdi-search"></i></a></li>
 
         </ul>
@@ -76,6 +76,8 @@
                         <li class="@@sidebaractive"><a href="/admin/club/add">Add Club</a></li>
                         <li class="@@sidebaractive"><a href="/admin/player/add">Add player</a></li>
                         <li class="@@sidebaractive"><a href="/admin/news/add">Add news</a></li>
+                        <li class="@@sidebaractive"><a href="/admin/league-table/add">Add league table</a></li>
+                        <li class="@@sidebaractive"><a href="/admin/match/add">Add match</a></li>
                         <li class="@@sidebaractive"><a href="/admin/user/add">Add user/admin</a></li>
                     </ul>
                 </li>
@@ -106,34 +108,82 @@
     <section class="content">
         <div class="content__inner">
             <header class="content__title">
-                <h1>Add League</h1>
+                <h1>Add Club</h1>
             </header>
 
             <div class="card">
                 <div class="card-body">
-                    <form action="/admin/league/add" method="post" id="add-league" enctype="multipart/form-data" th:object="${form}">
+                    <form action="/admin/club/add" method="post" id="add-club" enctype="multipart/form-data" th:object="${form}">
                         <div class="form-group">
                             <span id="nameError" style="color: red" th:errors="*{name}"></span><br/>
                             <span id="nameError" style="color: red" th:unless="${#fields.hasErrors('name')}"></span><br/>
-                            <input type="text" id="name" th:field="*{name}" class="form-control form-control-sm league-input" placeholder="Name...">
+                            <input type="text" id="name" th:field="*{name}" class="form-control form-control-sm club-input" placeholder="Name...">
+                            <i class="form-group__bar"></i>
+                        </div>
+                        <div class="form-group">
+                            <span id="descriptionError" style="color: red" th:errors="*{description}"></span><br/>
+                            <span id="descriptionError" style="color: red" th:unless="${#fields.hasErrors('description')}"></span><br/>
+                            <textarea id="description" class="form-control club-input" th:field="*{description}" rows="5" placeholder="Description..."></textarea>
+                            <i class="form-group__bar"></i>
+                        </div>
+                        <div class="form-group">
+                            <span id="trainerError" style="color: red" th:errors="*{trainer}"></span><br/>
+                            <span id="trainerError" style="color: red" th:unless="${#fields.hasErrors('trainer')}"></span><br/>
+                            <input type="text" id="trainer" th:field="*{trainer}" class="form-control form-control-sm club-input" placeholder="Trainer...">
                             <i class="form-group__bar"></i>
                         </div>
 
                         <div class="form-group">
-                            <span id="descriptionError" style="color: red" th:errors="*{description}"></span><br/>
-                            <span id="descriptionError" style="color: red" th:unless="${#fields.hasErrors('description')}"></span><br/>
-                            <textarea id="description" class="form-control league-input" th:field="*{description}" rows="5" placeholder="Description..."></textarea>
+                            <span id="stadiumError" style="color: red" th:errors="*{stadium}"></span><br/>
+                            <span id="stadiumError" style="color: red" th:unless="${#fields.hasErrors('stadium')}"></span><br/>
+                            <input type="text" id="stadium" th:field="*{stadium}" class="form-control form-control-sm club-input" placeholder="Stadium...">
                             <i class="form-group__bar"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <span id="ownerError" style="color: red" th:errors="*{owner}"></span><br/>
+                            <span id="ownerError" style="color: red" th:unless="${#fields.hasErrors('owner')}"></span><br/>
+                            <input type="text" id="owner" th:field="*{owner}" class="form-control form-control-sm club-input" placeholder="Owner...">
+                            <i class="form-group__bar"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <span id="championError" style="color: red" th:errors="*{champion}"></span><br/>
+                            <span id="championError" style="color: red" th:unless="${#fields.hasErrors('champion')}"></span><br/>
+                            <span>is champion</span>
+                            <br/>
+                            <br/>
+                            <label class="custom-control custom-radio">
+                                <input id="yes" th:field="*{champion}" value="yes" type="radio" class="custom-control-input champion">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Yes</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input id="no" th:field="*{champion}" value="no" type="radio" class="custom-control-input champion">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">No</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <span id="leagueIdError" style="color: red" th:errors="*{leagueId}"></span><br/>
+                            <span id="leagueIdError" style="color: red" th:unless="${#fields.hasErrors('leagueId')}"></span><br/>
+                            <select style="background-color: #772036;color: white;border: none;" id="league-select" th:field="*{leagueId}">
+                                <option value="0" >Select league</option>
+                                <th:block th:each="league : ${leagues}">
+                                    <option th:value="${league.id}" th:text="${league.name}">name</option>
+                                </th:block>
+                            </select>
                         </div>
                         <div class="form-group">
                             <span id="imageError" style="color: red" th:errors="*{image}"></span><br/>
                             <span id="imageError" style="color: red" th:unless="${#fields.hasErrors('image')}"></span><br/>
-                            <input  type="file" th:field="*{image}" id="file" class="inputfile league-input" />
-                            <label style="cursor: pointer" for="file" >Choose a photo</label><br/>
+                            <input  type="file" th:field="*{image}" id="file" class="inputfile club-input" />
+                            <label style="background-color: #772036;color: white;cursor: pointer;" for="file" >Choose a photo</label><br/>
                         </div>
 
                         <div class="form-group">
-                            <button style="cursor: pointer" type="submit" class="btn btn-success">Success</button>
+                            <button style="cursor: pointer" type="submit" class="btn btn-success">Add</button>
                         </div>
 
                     </form>
@@ -161,6 +211,6 @@
 
 <!-- App functions and actions -->
 <script src="/resources/admin/js/app.min.js"></script>
-<script src="/resources/js/add-league.js"></script>
+<script src="/resources/js/add-club.js"></script>
 </body>
 </html>

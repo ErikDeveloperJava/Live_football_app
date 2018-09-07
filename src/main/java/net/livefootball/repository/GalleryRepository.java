@@ -1,4 +1,9 @@
 package net.livefootball.repository;
 
-public interface GalleryRepository {
+import net.livefootball.model.Gallery;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GalleryRepository extends JpaRepository<Gallery,Integer> {
+
+
 }

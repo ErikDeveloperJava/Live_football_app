@@ -1,19 +1,19 @@
 $(document).ready(function () {
 
-    $(".news-input").on("input",function (event) {
+    $(".league-table-input").on("input",function (event) {
         var name = $(this).attr("name");
         var value = $(this).val();
         isValidData(name,value,event);
     });
 
-    $("#league-select").on("change",function (event) {
+    $("#clubId-select").on("change",function (event) {
         var value = $(this).val();
         var name = $(this).attr("name");
         isValidData(name,value,event);
     });
 
-    $("#add-news").on("submit",function (event) {
-        var inputTags = $(".news-input");
+    $("#add-league-table").on("submit",function (event) {
+        var inputTags = $(".league-table-input");
         $.each(inputTags,function (i, input) {
             var name = $(input).attr("name");
             var value = $(input).val();
@@ -24,38 +24,60 @@ $(document).ready(function () {
 
 function isValidData(name, value, event) {
     switch (name){
-        case "title":
-            if(value == null || value.length < 2 || value.length > 255){
+        case "played":
+            if(value == null || value < 0){
                 event.preventDefault();
-                $("#title").attr("class","form-control form-control-sm is-invalid");
-                $("#titleError").text("in title field wrong data");
+                $("#played").attr("class","form-control form-control-sm is-invalid");
+                $("#playedError").text("in played field wrong data");
             }else {
-                $("#title").attr("class","form-control form-control-sm is-valid");
-                $("#titleError").text("");
+                $("#played").attr("class","form-control form-control-sm is-valid");
+                $("#playedError").text("");
             };
             break;
-        case "description":
-            if(value == null || value.length < 8){
+        case "won":
+            if(value == null || value < 0){
                 event.preventDefault();
-                $("#description").attr("class","form-control form-control-sm is-invalid");
-                $("#descriptionError").text("in description field wrong data");
+                $("#won").attr("class","form-control form-control-sm is-invalid");
+                $("#wonError").text("in won field wrong data");
             }else {
-                $("#description").attr("class","form-control form-control-sm is-valid");
-                $("#descriptionError").text("");
+                $("#won").attr("class","form-control form-control-sm is-valid");
+                $("#wonError").text("");
             };
             break;
-        case "image":
-            if(value == null || value.length < 4 || value.length > 255){
+        case "drawn":
+            if(value == null || value < 0){
                 event.preventDefault();
-                $("#imageError").text("in image field wrong data");
+                $("#drawn").attr("class","form-control form-control-sm is-invalid");
+                $("#drawnError").text("in drawn field wrong data");
             }else {
-                $("#imageError").text("");
+                $("#drawn").attr("class","form-control form-control-sm is-valid");
+                $("#drawnError").text("");
             };
             break;
-        case "leagueId":
+        case "lost":
+            if(value == null || value < 0){
+                event.preventDefault();
+                $("#lost").attr("class","form-control form-control-sm is-invalid");
+                $("#lostError").text("in lost field wrong data");
+            }else {
+                $("#lost").attr("class","form-control form-control-sm is-valid");
+                $("#lostError").text("");
+            };
+            break;
+        case "points":
+            if(value == null || value < 0){
+                event.preventDefault();
+                $("#points").attr("class","form-control form-control-sm is-invalid");
+                $("#pointsError").text("in points field wrong data");
+            }else {
+                $("#points").attr("class","form-control form-control-sm is-valid");
+                $("#pointsError").text("");
+            };
+            break;
+        case "clubId":
             if(value <= 0){
                 event.preventDefault();
-                $("#" + name + "Error").text("please choose a league");
+                $("#" + name + "Error").text("please choose a club");
             }else {
                 $("#" + name + "Error").text("");
             };

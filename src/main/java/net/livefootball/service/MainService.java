@@ -1,4 +1,8 @@
 package net.livefootball.service;
 
-public class MainService {
+import net.livefootball.pages.MainPage;
+
+public interface MainService {
+
+    MainPage getMainPage();
 }

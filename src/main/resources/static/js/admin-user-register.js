@@ -2,49 +2,28 @@ $(document).ready(function () {
 
     var size = 0;
 
-    $(".club-input").on("input",function (event) {
+    $(".register-input").on("input",function (event) {
         var name = $(this).attr("name");
         var value = $(this).val();
         isValidData(name,value,event);
     });
 
-    $("#league-select").on("change",function () {
+    $("#register-select").on("change",function () {
         var value = $(this).val();
-        if(value <= 0){
-            $("#leagueIdError").text("please choose a category");
-            $("#leagueId").attr("class","is-invalid")
+        if(value == "null"){
+            $("#roleError").text("please choose a category");
         }else {
-            $("#leagueIdError").text("");
-            $("#leagueId").attr("class","is-valid")
+            $("#roleError").text("");
         }
     });
 
-    $(".champion").on("change",function () {
-        size++;
-        $("#championError").text("");
-    })
-
-    $("#add-club").on("submit",function (event) {
-        var inputTags = [$("#name"),$("#trainer"),$("#stadium"),
-        $("#owner"),$("#file"),$("#description")];
+    $("#register-form").on("submit",function (event) {
+        var inputTags = $(".register-input");
         $.each(inputTags,function (i, input) {
             var name = $(input).attr("name");
             var value = $(input).val();
             isValidData(name,value,event);
         });
-        var value = $("#league-select").val();
-        if(value <= 0){
-            $("#leagueIdError").text("please choose a category");
-            $("#leagueId").attr("class","is-invalid")
-        }else {
-            $("#leagueIdError").text("");
-            $("#leagueId").attr("class","is-valid")
-        };
-        if(size == 0){
-            $("#championError").text("please choose Yes or No");
-        }else {
-            $("#championError").text("");
-        }
     })
 });
 
@@ -60,44 +39,32 @@ function isValidData(name, value, event) {
                 $("#nameError").text("");
             };
             break;
-        case "description":
-            if(value == null || value.length < 8){
-                event.preventDefault();
-                $("#description").attr("class","form-control form-control-sm is-invalid");
-                $("#descriptionError").text("in description field wrong data");
-            }else {
-                $("#description").attr("class","form-control form-control-sm is-valid");
-                $("#descriptionError").text("");
-            };
-            break;
-        case "trainer":
+        case "username":
             if(value == null || value.length < 2 || value.length > 255){
                 event.preventDefault();
-                $("#trainer").attr("class","form-control form-control-sm is-invalid");
-                $("#trainerError").text("in trainer field wrong data");
+                $("#username").attr("class","form-control form-control-sm is-invalid");
+                $("#usernameError").text("in username field wrong data");
             }else {
-                $("#trainer").attr("class","form-control form-control-sm is-valid");
-                $("#trainerError").text("");
+                $("#username").attr("class","form-control form-control-sm is-valid");
+                $("#usernameError").text("");
             };
             break;
-        case "stadium":
+        case "password":
             if(value == null || value.length < 2 || value.length > 255){
                 event.preventDefault();
-                $("#stadium").attr("class","form-control form-control-sm is-invalid");
-                $("#stadiumError").text("in stadium field wrong data");
+                $("#password").attr("class","form-control form-control-sm is-invalid");
+                $("#passwordError").text("in password field wrong data");
             }else {
-                $("#stadium").attr("class","form-control form-control-sm is-valid");
-                $("#stadiumError").text("");
+                $("#password").attr("class","form-control form-control-sm is-valid");
+                $("#passwordError").text("");
             };
             break;
-        case "owner":
-            if(value == null || value.length < 2 || value.length > 255){
+        case "role":
+            if(value == null || value == "null"){
                 event.preventDefault();
-                $("#owner").attr("class","form-control form-control-sm is-invalid");
-                $("#ownerError").text("in owner field wrong data");
+                $("#roleError").text("please choose a role");
             }else {
-                $("#owner").attr("class","form-control form-control-sm is-valid");
-                $("#ownerError").text("");
+                $("#roleError").text("");
             };
             break;
         case "image":

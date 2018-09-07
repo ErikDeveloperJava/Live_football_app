@@ -1,4 +1,6 @@
 package net.livefootball.model;
 
-public class UseRole {
+public enum UserRole {
+
+    USER,ADMIN,ROLE_ANONYMOUS
 }
